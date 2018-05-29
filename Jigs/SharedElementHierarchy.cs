@@ -7,9 +7,9 @@ namespace Jigs
     {
         private static readonly string _path = Path.Combine(Program.SolutionPath, "Shared", "Elements", "IHierarchy.cs");
 
-        public static void WriteIHierarchyCsFile() => File.WriteAllText(_path, GetIHierarcyCs());
+        public static void WriteFile() => File.WriteAllText(_path, GetFileContent());
 
-        private static string GetIHierarcyCs()
+        private static string GetFileContent()
             => new StringBuilder()
                 .AppendLine("namespace Shared.Elements")
                 .AppendLine("{")

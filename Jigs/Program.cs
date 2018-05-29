@@ -8,6 +8,6 @@ namespace Jigs
     {
         internal static readonly string SolutionPath = new DirectoryInfo(Environment.CurrentDirectory).Parent.FullName;
 
-        public static void Main(string[] args) => WriteIHierarchyCsFile();
+        public static void Main(string[] args) => WriteFile();
     }
 }
