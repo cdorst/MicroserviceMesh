@@ -331,5 +331,4 @@ namespace Shared.Elements
 		THierarchy Hierarchy3 { get; }
 		THierarchyKey Hierarchy3Id { get; }
 	}
-
 }

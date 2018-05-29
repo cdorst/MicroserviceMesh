@@ -76,14 +76,17 @@ namespace Jigs
 
         private static StringBuilder AppendHierarchyMemberTypes(this StringBuilder stringBuilder)
         {
-            for (byte position = 1; position <= MaxSameElements; position++) stringBuilder
+            for (byte position = 1; position <= MaxSameElements; position++)
+            {
+                stringBuilder
                 .AppendLine(Concat(Tab, "public interface ", IHierarchy, "MemberHierarchy", position, "<", GetHierarchyGenerics(), CloseAngleBrace))
                 .AppendHierarchyGenericConstraint()
                 .AppendLine(Concat(Tab, CurlyBraceOpen))
                 .AppendLine(Concat(TwoTabs, THierarchy, " Hierarchy", position, Getter))
                 .AppendLine(Concat(TwoTabs, THierarchyKey, " Hierarchy", position, "Id", Getter))
-                .AppendLine(Concat(Tab, CurlyBraceClose))
-                .AppendLine();
+                .AppendLine(Concat(Tab, CurlyBraceClose));
+                if (position != MaxSameElements) stringBuilder.AppendLine();
+            }
             return stringBuilder;
         }
 
