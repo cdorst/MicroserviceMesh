@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2018
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{3EF92F64-B673-48E3-8F4B-B53F444CB931}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jigs", "Jigs\Jigs.csproj", "{7F79DBBD-292D-415E-BFEE-FF734F8054CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{3EF92F64-B673-48E3-8F4B-B53F444CB931}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EF92F64-B673-48E3-8F4B-B53F444CB931}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3EF92F64-B673-48E3-8F4B-B53F444CB931}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F79DBBD-292D-415E-BFEE-FF734F8054CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F79DBBD-292D-415E-BFEE-FF734F8054CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F79DBBD-292D-415E-BFEE-FF734F8054CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F79DBBD-292D-415E-BFEE-FF734F8054CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
