@@ -277,4 +277,59 @@ namespace Shared.Elements
 		where THierarchy3 : IHierarchy<THierarchyKey3>
 	{
 	}
+
+	public interface IHierarchyMemberDatumLabel1<TDatumLabel, TDatumLabelKey, TDatum, TDatumKey, TDatumValue>
+		where TDatumKey : unmanaged
+		where TDatumLabelKey : unmanaged
+		where TDatum : IDatum<TDatumKey, TDatumValue>
+		where TDatumLabel : IDatumLabel<TDatumLabelKey, TDatum, TDatumKey, TDatumValue>
+	{
+		TDatumLabel Label1 { get; }
+		TDatumLabelKey Label1Id { get; }
+	}
+
+	public interface IHierarchyMemberDatumLabel2<TDatumLabel, TDatumLabelKey, TDatum, TDatumKey, TDatumValue>
+		where TDatumKey : unmanaged
+		where TDatumLabelKey : unmanaged
+		where TDatum : IDatum<TDatumKey, TDatumValue>
+		where TDatumLabel : IDatumLabel<TDatumLabelKey, TDatum, TDatumKey, TDatumValue>
+	{
+		TDatumLabel Label2 { get; }
+		TDatumLabelKey Label2Id { get; }
+	}
+
+	public interface IHierarchyMemberDatumLabel3<TDatumLabel, TDatumLabelKey, TDatum, TDatumKey, TDatumValue>
+		where TDatumKey : unmanaged
+		where TDatumLabelKey : unmanaged
+		where TDatum : IDatum<TDatumKey, TDatumValue>
+		where TDatumLabel : IDatumLabel<TDatumLabelKey, TDatum, TDatumKey, TDatumValue>
+	{
+		TDatumLabel Label3 { get; }
+		TDatumLabelKey Label3Id { get; }
+	}
+
+	public interface IHierarchyMemberHierarchy1<THierarchy, THierarchyKey>
+		where THierarchyKey : unmanaged
+		where THierarchy : IHierarchy<THierarchyKey>
+	{
+		THierarchy Hierarchy1 { get; }
+		THierarchyKey Hierarchy1Id { get; }
+	}
+
+	public interface IHierarchyMemberHierarchy2<THierarchy, THierarchyKey>
+		where THierarchyKey : unmanaged
+		where THierarchy : IHierarchy<THierarchyKey>
+	{
+		THierarchy Hierarchy2 { get; }
+		THierarchyKey Hierarchy2Id { get; }
+	}
+
+	public interface IHierarchyMemberHierarchy3<THierarchy, THierarchyKey>
+		where THierarchyKey : unmanaged
+		where THierarchy : IHierarchy<THierarchyKey>
+	{
+		THierarchy Hierarchy3 { get; }
+		THierarchyKey Hierarchy3Id { get; }
+	}
+
 }
