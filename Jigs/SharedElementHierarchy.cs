@@ -8,7 +8,8 @@ namespace Jigs
 {
     public static class SharedElementHierarchy
     {
-        private const string CloseAngleBrace = ">";
+        private const string AngleBraceClose = ">";
+        private const string AngleBraceOpen = "<";
         private const string Comma = ",";
         private const string CommaSpace = ", ";
         private const string CurlyBraceClose = "}";
@@ -17,6 +18,7 @@ namespace Jigs
         private const string Getter = " { get; }";
         private const string IHierarchy = nameof(IHierarchy);
         private const byte MaxSameElements = 3;
+        private const string PublicInterface = "public interface ";
         private const string Shared = nameof(Shared);
         private const string Tab = "\t";
         private const string TDatum = nameof(TDatum);
@@ -42,6 +44,9 @@ namespace Jigs
 
         private static bool AppendComma(in byte position, in byte last, in bool zeroHierarchies = true)
             => position < last || (position == last && !zeroHierarchies);
+
+        private static bool AppendCommaLabels(in bool zeroHierarchies, in byte position, in byte last)
+            => !zeroHierarchies || position < last;
 
         private static StringBuilder AppendGenericHierarchyConstraints(this StringBuilder stringBuilder, in byte quantity)
         {
@@ -71,7 +76,7 @@ namespace Jigs
             var positionString = PositionOrEmpty(in position);
             return stringBuilder
                 .AppendLine(Concat(TwoTabs, WhereUnmanaged(Concat(THierarchyKey, positionString))))
-                .AppendLine(Concat(TwoTabs, Concat(WhereClause(Concat(THierarchy, positionString)), "IHierarchy<THierarchyKey", positionString, CloseAngleBrace)));
+                .AppendLine(Concat(TwoTabs, Concat(WhereClause(Concat(THierarchy, positionString)), "IHierarchy<THierarchyKey", positionString, AngleBraceClose)));
         }
 
         private static StringBuilder AppendHierarchyMemberTypes(this StringBuilder stringBuilder)
@@ -79,7 +84,7 @@ namespace Jigs
             for (byte position = 1; position <= MaxSameElements; position++)
             {
                 stringBuilder
-                .AppendLine(Concat(Tab, "public interface ", IHierarchy, "MemberHierarchy", position, "<", GetHierarchyGenerics(), CloseAngleBrace))
+                .AppendLine(Concat(Tab, PublicInterface, IHierarchy, "MemberHierarchy", position, AngleBraceOpen, GetHierarchyGenerics(), AngleBraceClose))
                 .AppendHierarchyGenericConstraint()
                 .AppendLine(Concat(Tab, CurlyBraceOpen))
                 .AppendLine(Concat(TwoTabs, THierarchy, " Hierarchy", position, Getter))
@@ -97,7 +102,7 @@ namespace Jigs
                 {
                     if (labels + hierarchies == 0 || (labels == 0 && hierarchies == 1)) continue;
                     stringBuilder
-                        .AppendLine(Concat(Tab, "public interface ", IHierarchy, "<TKey,"))
+                        .AppendLine(Concat(Tab, PublicInterface, IHierarchy, "<TKey,"))
                         .AppendGenericLabelTypes(in labels, in hierarchies);
                     stringBuilder
                         .AppendGenericHierarchyTypes(in hierarchies, in labels)
@@ -112,7 +117,7 @@ namespace Jigs
 
         private static StringBuilder AppendInterfaceGenericOverloads(this StringBuilder stringBuilder)
             => stringBuilder
-                .AppendLine(Concat(Tab, "public interface ", IHierarchy, "<TKey> : IElement<TKey>"))
+                .AppendLine(Concat(Tab, PublicInterface, IHierarchy, "<TKey> : IElement<TKey>"))
                 .AppendLine(Concat(TwoTabs, WhereUnmanaged("TKey")))
                 .AppendBodyBlock()
                 .AppendLine()
@@ -126,14 +131,14 @@ namespace Jigs
             return stringBuilder
                 .AppendLine(Concat(TwoTabs, WhereUnmanaged(Concat(TDatumKey, positionString))))
                 .AppendLine(Concat(TwoTabs, WhereUnmanaged(Concat(TDatumLabelKey, positionString))))
-                .AppendLine(Concat(TwoTabs, Concat(WhereClause(Concat(TDatum, positionString)), "IDatum<TDatumKey", positionString, CommaSpace, TDatumValue, positionString, CloseAngleBrace)))
-                .AppendLine(Concat(TwoTabs, Concat(WhereClause(Concat(TDatumLabel, positionString)), "IDatumLabel<TDatumLabelKey", positionString, CommaSpace, TDatum, positionString, CommaSpace, TDatumKey, positionString, CommaSpace, TDatumValue, positionString, CloseAngleBrace)));
+                .AppendLine(Concat(TwoTabs, Concat(WhereClause(Concat(TDatum, positionString)), "IDatum<TDatumKey", positionString, CommaSpace, TDatumValue, positionString, AngleBraceClose)))
+                .AppendLine(Concat(TwoTabs, Concat(WhereClause(Concat(TDatumLabel, positionString)), "IDatumLabel<TDatumLabelKey", positionString, CommaSpace, TDatum, positionString, CommaSpace, TDatumKey, positionString, CommaSpace, TDatumValue, positionString, AngleBraceClose)));
         }
 
         private static StringBuilder AppendLabelMemberTypes(this StringBuilder stringBuilder)
         {
             for (byte position = 1; position <= MaxSameElements; position++) stringBuilder
-                .AppendLine(Concat(Tab, "public interface ", IHierarchy, "MemberDatumLabel", position, "<", GetLabelGenerics(), CloseAngleBrace))
+                .AppendLine(Concat(Tab, PublicInterface, IHierarchy, "MemberDatumLabel", position, AngleBraceOpen, GetLabelGenerics(), AngleBraceClose))
                 .AppendLabelGenericConstraint()
                 .AppendLine(Concat(Tab, CurlyBraceOpen))
                 .AppendLine(Concat(TwoTabs, TDatumLabel, " Label", position, Getter))
@@ -153,6 +158,18 @@ namespace Jigs
             return stringBuilder;
         }
 
+        private static string AppendMemberBaseTypes(this string instance, in byte labels, in byte hierarchies)
+        {
+            var sb = new StringBuilder().Append(instance);
+            sb.Append(AngleBraceClose).AppendLine(Comma);
+            var zeroHierarchies = hierarchies == byte.MinValue;
+            for (byte position = 1; position <= labels; position++)
+                sb.AppendLine(Concat(ThreeTabs, "IHierarchyMemberDatumLabel", position, AngleBraceOpen, GetLabelGenerics(in position), AngleBraceClose, AppendCommaLabels(in zeroHierarchies, in position, in labels) ? Comma : Empty));
+            for (byte position = 1; position <= hierarchies; position++)
+                sb.AppendLine(Concat(ThreeTabs, "IHierarchyMemberHierarchy", position, AngleBraceOpen, GetHierarchyGenerics(in position), AngleBraceClose, position != hierarchies ? Comma : Empty));
+            return sb.ToString().TrimEnd();
+        }
+
         private static string CloseOrEmpty(in byte position, in byte last, in byte hierarchies = byte.MinValue, in byte labels = byte.MinValue, in bool additionalPredicate = true)
             => AppendCloseAngleBrace(in position, in last, in additionalPredicate) 
                 ? Concat(">\r\n\t\t: ", GetBaseType(in labels, in hierarchies)) 
@@ -163,7 +180,7 @@ namespace Jigs
 
         private static string GetBaseType(in byte labels, in byte hierarchies)
             => labels + hierarchies == 1 || (labels == byte.MinValue && hierarchies == 2) 
-                ? "IHierarchy<TKey>" 
+                ? "IHierarchy<TKey".AppendMemberBaseTypes(in labels, in hierarchies)
                 : GetBaseTypeSyntax(labels, hierarchies);
 
         private static string GetBaseTypeSyntax(byte labels, byte hierarchies)
@@ -172,18 +189,18 @@ namespace Jigs
             else hierarchies--;
             var zeroHierarchies = hierarchies == byte.MinValue;
             var sb = new StringBuilder().Append("IHierarchy<TKey, ");
-            for (byte label = 1; label <= labels; label++)
+            for (byte position = 1; position <= labels; position++)
             {
-                sb.Append(GetLabelGenerics(in label));
-                if (!zeroHierarchies || label < labels)
+                sb.Append(GetLabelGenerics(in position));
+                if (AppendCommaLabels(in zeroHierarchies, in position, in labels))
                     sb.Append(zeroHierarchies ? Comma : CommaSpace);
             }
-            for (byte hierarchy = 1; hierarchy <= hierarchies; hierarchy++)
+            for (byte position = 1; position <= hierarchies; position++)
             {
-                sb.Append(GetHierarchyGenerics(in hierarchy));
-                if (hierarchy < hierarchies) sb.Append(Comma);
+                sb.Append(GetHierarchyGenerics(in position));
+                if (position < hierarchies) sb.Append(Comma);
             }
-            return sb.Append(CloseAngleBrace).ToString();
+            return sb.ToString().AppendMemberBaseTypes(in labels, in hierarchies);
         }
 
         private static string GetFileContent()
