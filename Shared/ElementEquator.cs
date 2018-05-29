@@ -12,6 +12,6 @@ namespace Shared
         public static bool EquateWithKey<TElement, TKey>(this TElement element, in TElement other)
             where TKey : unmanaged, IEquatable<TKey>
             where TElement : IElement<TElement, TKey>
-            => element.Id.Equals(other.Id) && element.Equate<TElement, TKey>(other)
+            => element.Id.Equals(other.Id) && element.Equate<TElement, TKey>(other);
     }
 }
