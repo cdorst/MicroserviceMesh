@@ -1,11 +1,12 @@
 ﻿namespace Shared.Elements
 {
-    public interface IDatumLabel<TKey, TDatum, TDatumKey, TDatumValue> : IElement<TKey>
+    public interface IDatumLabel<TElement, TKey, TDatum, TDatumKey, TDatumValue> : IElement<TElement, TKey>
         where TKey : unmanaged
+        where TElement : IElement<TElement, TKey>
         where TDatumKey : unmanaged
-        where TDatum : IDatum<TDatumKey, TDatumValue>
+        where TDatum : IDatum<TDatum, TDatumKey, TDatumValue>
     {
-        IDatum<TDatumKey, TDatumValue> Datum { get; }
+        IDatum<TDatum, TDatumKey, TDatumValue> Datum { get; }
         TDatumKey DatumId { get; }
     }
 }

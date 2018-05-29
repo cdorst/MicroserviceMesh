@@ -76,7 +76,7 @@ namespace Jigs
             var positionString = PositionOrEmpty(in position);
             return stringBuilder
                 .AppendLine(Concat(TwoTabs, WhereUnmanaged(Concat(THierarchyKey, positionString))))
-                .AppendLine(Concat(TwoTabs, Concat(WhereClause(Concat(THierarchy, positionString)), "IHierarchy<THierarchyKey", positionString, AngleBraceClose)));
+                .AppendLine(Concat(TwoTabs, Concat(WhereClause(Concat(THierarchy, positionString)), "IHierarchy<THierarchy", positionString, CommaSpace, "THierarchyKey", positionString, AngleBraceClose)));
         }
 
         private static StringBuilder AppendHierarchyMemberTypes(this StringBuilder stringBuilder)
@@ -102,11 +102,12 @@ namespace Jigs
                 {
                     if (labels + hierarchies == 0 || (labels == 0 && hierarchies == 1)) continue;
                     stringBuilder
-                        .AppendLine(Concat(Tab, PublicInterface, IHierarchy, "<TKey,"))
+                        .AppendLine(Concat(Tab, PublicInterface, IHierarchy, "<TElement, TKey,"))
                         .AppendGenericLabelTypes(in labels, in hierarchies);
                     stringBuilder
                         .AppendGenericHierarchyTypes(in hierarchies, in labels)
                         .AppendLine(Concat(TwoTabs, WhereUnmanaged("TKey")))
+                        .AppendLine(Concat(TwoTabs, Concat(WhereClause("TElement"), "IElement<TElement, TKey>")))
                         .AppendGenericLabelConstraints(in labels)
                         .AppendGenericHierarchyConstraints(in hierarchies)
                         .AppendBodyBlock()
@@ -117,8 +118,9 @@ namespace Jigs
 
         private static StringBuilder AppendInterfaceGenericOverloads(this StringBuilder stringBuilder)
             => stringBuilder
-                .AppendLine(Concat(Tab, PublicInterface, IHierarchy, "<TKey> : IElement<TKey>"))
+                .AppendLine(Concat(Tab, PublicInterface, IHierarchy, "<TElement, TKey> : IElement<TElement, TKey>"))
                 .AppendLine(Concat(TwoTabs, WhereUnmanaged("TKey")))
+                .AppendLine(Concat(TwoTabs, Concat(WhereClause("TElement"), "IElement<TElement, TKey>")))
                 .AppendBodyBlock()
                 .AppendLine()
                 .AppendHierarchyTypes()
@@ -131,8 +133,8 @@ namespace Jigs
             return stringBuilder
                 .AppendLine(Concat(TwoTabs, WhereUnmanaged(Concat(TDatumKey, positionString))))
                 .AppendLine(Concat(TwoTabs, WhereUnmanaged(Concat(TDatumLabelKey, positionString))))
-                .AppendLine(Concat(TwoTabs, Concat(WhereClause(Concat(TDatum, positionString)), "IDatum<TDatumKey", positionString, CommaSpace, TDatumValue, positionString, AngleBraceClose)))
-                .AppendLine(Concat(TwoTabs, Concat(WhereClause(Concat(TDatumLabel, positionString)), "IDatumLabel<TDatumLabelKey", positionString, CommaSpace, TDatum, positionString, CommaSpace, TDatumKey, positionString, CommaSpace, TDatumValue, positionString, AngleBraceClose)));
+                .AppendLine(Concat(TwoTabs, Concat(WhereClause(Concat(TDatum, positionString)), "IDatum<TDatum", positionString, CommaSpace, "TDatumKey", positionString, CommaSpace, TDatumValue, positionString, AngleBraceClose)))
+                .AppendLine(Concat(TwoTabs, Concat(WhereClause(Concat(TDatumLabel, positionString)), "IDatumLabel<TDatumLabel", positionString, CommaSpace, "TDatumLabelKey", positionString, CommaSpace, TDatum, positionString, CommaSpace, TDatumKey, positionString, CommaSpace, TDatumValue, positionString, AngleBraceClose)));
         }
 
         private static StringBuilder AppendLabelMemberTypes(this StringBuilder stringBuilder)
@@ -180,7 +182,7 @@ namespace Jigs
 
         private static string GetBaseType(in byte labels, in byte hierarchies)
             => labels + hierarchies == 1 || (labels == byte.MinValue && hierarchies == 2) 
-                ? "IHierarchy<TKey".AppendMemberBaseTypes(in labels, in hierarchies)
+                ? "IHierarchy<TElement, TKey".AppendMemberBaseTypes(in labels, in hierarchies)
                 : GetBaseTypeSyntax(labels, hierarchies);
 
         private static string GetBaseTypeSyntax(byte labels, byte hierarchies)
@@ -188,7 +190,7 @@ namespace Jigs
             if (labels > hierarchies) labels--;
             else hierarchies--;
             var zeroHierarchies = hierarchies == byte.MinValue;
-            var sb = new StringBuilder().Append("IHierarchy<TKey, ");
+            var sb = new StringBuilder().Append("IHierarchy<TElement, TKey, ");
             for (byte position = 1; position <= labels; position++)
             {
                 sb.Append(GetLabelGenerics(in position));
