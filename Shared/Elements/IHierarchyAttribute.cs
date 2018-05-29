@@ -1,10 +1,12 @@
-﻿namespace Shared.Elements
+﻿using System;
+
+namespace Shared.Elements
 {
     public interface IHierarchyAttribute<TElement, THierarchyKey, TAttribute, TAttributeKey> 
         : IElement<TElement, THierarchyKey>
-        where THierarchyKey : unmanaged
+        where THierarchyKey : unmanaged, IEquatable<THierarchyKey>
         where TElement : IElement<TElement, THierarchyKey>
-        where TAttributeKey : unmanaged
+        where TAttributeKey : unmanaged, IEquatable<TAttributeKey>
         where TAttribute : IHierarchy<TAttribute, TAttributeKey>
     {
         TAttribute Attribute { get; }
@@ -13,10 +15,10 @@
 
     public interface IHierarchyAttribute<TElement, THierarchyKey, TAttribute, TAttributeKey, TAttributeDatum, TAttributeDatumKey, TAttributeDatumValue> 
         : IElement<TElement, THierarchyKey>
-        where THierarchyKey : unmanaged
+        where THierarchyKey : unmanaged, IEquatable<THierarchyKey>
         where TElement : IElement<TElement, THierarchyKey>
-        where TAttributeKey : unmanaged
-        where TAttributeDatumKey : unmanaged
+        where TAttributeKey : unmanaged, IEquatable<TAttributeKey>
+        where TAttributeDatumKey : unmanaged, IEquatable<TAttributeDatumKey>
         where TAttributeDatum : IDatum<TAttributeDatum, TAttributeDatumKey, TAttributeDatumValue>
         where TAttribute : IDatumLabel<TAttribute, TAttributeKey, TAttributeDatum, TAttributeDatumKey, TAttributeDatumValue>
     {

@@ -3,7 +3,7 @@
 namespace Shared
 {
     public interface IElement<TElement, TKey> : IEquatable<TElement>, IMemorySerializable
-        where TKey : unmanaged
+        where TKey : unmanaged, IEquatable<TKey>
         where TElement : IElement<TElement, TKey>
     {
         TKey Id { get; }

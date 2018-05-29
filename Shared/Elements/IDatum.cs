@@ -1,7 +1,9 @@
-﻿namespace Shared.Elements
+﻿using System;
+
+namespace Shared.Elements
 {
     public interface IDatum<TElement, TKey, TValue> : IElement<TElement, TKey> 
-        where TKey : unmanaged
+        where TKey : unmanaged, IEquatable<TKey>
         where TElement : IElement<TElement, TKey>
     {
         TValue Value { get; }
