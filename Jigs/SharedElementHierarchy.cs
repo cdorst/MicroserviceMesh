@@ -39,7 +39,7 @@ namespace Jigs
 
         private static StringBuilder AppendInterfaceGenericOverloads(this StringBuilder stringBuilder)
         {
-            stringBuilder.AppendLine(Concat(Tab, "public interface ", IHierarchy, "<TKey>"))
+            stringBuilder.AppendLine(Concat(Tab, "public interface ", IHierarchy, "<TKey> : IElement<TKey>"))
                 .AppendLine(Concat(TwoTabs, WhereUnmanaged("TKey")))
                 .AppendLine(Concat(Tab, CurlyBraceOpen))
                 .AppendLine(Concat(Tab, CurlyBraceClose))

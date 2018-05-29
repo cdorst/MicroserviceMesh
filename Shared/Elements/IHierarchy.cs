@@ -1,6 +1,6 @@
 namespace Shared.Elements
 {
-	public interface IHierarchy<TKey>
+	public interface IHierarchy<TKey> : IElement<TKey>
 		where TKey : unmanaged
 	{
 	}
