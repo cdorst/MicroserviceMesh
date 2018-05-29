@@ -1,6 +1,7 @@
 ﻿namespace Shared
 {
-    public interface IElement<TKey> where TKey : unmanaged
+    public interface IElement<TKey> : IMemorySerializable
+        where TKey : unmanaged
     {
         TKey Id { get; }
     }
