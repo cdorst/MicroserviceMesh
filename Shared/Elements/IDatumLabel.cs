@@ -6,7 +6,7 @@
         where TDatumKey : unmanaged
         where TDatum : IDatum<TDatum, TDatumKey, TDatumValue>
     {
-        IDatum<TDatum, TDatumKey, TDatumValue> Datum { get; }
+        TDatum Datum { get; }
         TDatumKey DatumId { get; }
     }
 }
