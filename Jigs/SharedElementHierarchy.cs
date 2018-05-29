@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Text;
 
 namespace Jigs
 {
@@ -8,6 +9,7 @@ namespace Jigs
 
         public static void WriteIHierarchyCsFile() => File.WriteAllText(_path, GetIHierarcyCs());
 
-        private static string GetIHierarcyCs() => string.Empty;
+        private static string GetIHierarcyCs()
+            => new StringBuilder().ToString();
     }
 }
