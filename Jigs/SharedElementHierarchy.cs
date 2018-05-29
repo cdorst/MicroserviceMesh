@@ -10,6 +10,13 @@ namespace Jigs
         public static void WriteIHierarchyCsFile() => File.WriteAllText(_path, GetIHierarcyCs());
 
         private static string GetIHierarcyCs()
-            => new StringBuilder().ToString();
+            => new StringBuilder()
+                .AppendLine("namespace Shared.Elements")
+                .AppendLine("{")
+                .AppendLine("\tpublic interface IHierarchy")
+                .AppendLine("\t{")
+                .AppendLine("\t}")
+                .AppendLine("}")
+                .ToString();
     }
 }
