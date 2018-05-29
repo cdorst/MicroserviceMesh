@@ -1,10 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
-using static Shared.Elements.PrimitivesSchemaConstant;
 
-namespace Shared.Elements.Permissions
+namespace Shared.Elements.Primitives
 {
-    [Table(nameof(Agent), Schema = Primitives)]
+    [Table(nameof(Agent), Schema = nameof(Primitives))]
     public class Agent : IDatum<Agent, long, Guid>
     {
         public Agent() => Value = Guid.NewGuid();
