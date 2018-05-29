@@ -1,13 +1,15 @@
-﻿using System.IO;
-using System.Text;
+﻿using System.Text;
+using static Jigs.Program;
+using static System.IO.File;
+using static System.IO.Path;
 
 namespace Jigs
 {
     public static class SharedElementHierarchy
     {
-        private static readonly string _path = Path.Combine(Program.SolutionPath, "Shared", "Elements", "IHierarchy.cs");
+        private static readonly string _path = Combine(SolutionPath, "Shared", "Elements", "IHierarchy.cs");
 
-        public static void WriteFile() => File.WriteAllText(_path, GetFileContent());
+        public static void WriteFile() => WriteAllText(_path, GetFileContent());
 
         private static string GetFileContent()
             => new StringBuilder()
