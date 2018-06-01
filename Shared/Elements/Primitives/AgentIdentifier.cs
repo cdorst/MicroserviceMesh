@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common.Extensions.Memory;
+using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Shared.Elements.Primitives
