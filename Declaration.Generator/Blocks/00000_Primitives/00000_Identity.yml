@@ -1,0 +1,20 @@
+﻿elements:
+  - type: Uuid
+    keySize: 64
+    value:
+      type: Guid
+      namespace: System
+
+  - type: UniqueIdentifier
+    keySize: 64
+    reference:
+      type: Uuid
+      blockName: Primitives
+      familyName: Identity
+
+  - type: Agent
+    keySize: 64
+    labels:
+      type: UniqueIdentifier
+      blockName: Primitives
+      familyName: Identity

@@ -1,0 +1,52 @@
+﻿elements:
+  - type: Integer8
+    keySize: 8
+    value:
+      type: Byte
+      namespace: System
+
+  - type: Int8Reference
+    keySize: 8
+    value:
+      type: Integer8
+      blockName: Primitives
+      familyName: Integers
+
+  - type: Integer16
+    keySize: 16
+    value:
+      type: Int16
+      namespace: System
+
+  - type: Int16Reference
+    keySize: 16
+    value:
+      type: Integer16
+      blockName: Primitives
+      familyName: Integers
+
+  - type: Integer32
+    keySize: 32
+    value:
+      type: Int32
+      namespace: System
+
+  - type: Int32Reference
+    keySize: 32
+    value:
+      type: Integer32
+      blockName: Primitives
+      familyName: Integers
+
+  - type: Integer64
+    keySize: 64
+    value:
+      type: Int64
+      namespace: System
+
+  - type: Int64Reference
+    keySize: 64
+    value:
+      type: Integer64
+      blockName: Primitives
+      familyName: Integers

@@ -1,0 +1,32 @@
+﻿elements:
+  - type: StringAscii900
+    keySize: 64
+    value:
+      type: String
+      namespace: System
+      attributes:
+        columnType: varchar(900)
+
+  - type: StringAsciiMax
+    keySize: 64
+    value:
+      type: String
+      namespace: System
+      attributes:
+        columnType: varchar(max)
+
+  - type: StringUnicode450
+    keySize: 64
+    value:
+      type: String
+      namespace: System
+      attributes:
+        columnType: nvarchar(450)
+
+  - type: StringUnicodeMax
+    keySize: 64
+    value:
+      type: String
+      namespace: System
+      attributes:
+        columnType: nvarchar(max)
