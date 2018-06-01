@@ -6,8 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CDorst.Common.Extensions.Memory" Version="1.2.0-rc1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.0-rc1-final" />
+    <PackageReference Include="CDorst.Common.Extensions.Memory" Version="1.4.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.0" />
   </ItemGroup>
 
 </Project>
