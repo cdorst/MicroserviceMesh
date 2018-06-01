@@ -1,5 +1,6 @@
 ﻿using Declaration.Generator.Types;
 using System.Collections.Generic;
+using System.Linq;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 using static System.Environment;
@@ -23,16 +24,19 @@ namespace Declaration.Generator
 
             // TODO compose unified declaration
 
+            //   TODO patch-in default values
+
             // TODO write Declaration.Code.cs file
         }
 
-        private static Layer GetLayer(in string layerYml)
-            => _deserializer.Deserialize<Layer>(ReadAllText(layerYml));
+        private static Layer GetLayer(in string path, in string file)
+            => _deserializer.Deserialize<Layer>(ReadAllText(Combine(path, file)));
 
         private static IEnumerable<Layer> GetLayers()
         {
             foreach (var block in EnumerateDirectories(_declarationPath))
-                yield return GetLayer(in block);
+                foreach (var layer in EnumerateFiles(block))
+                    yield return GetLayer(in block, in layer);
         }
     }
 }
