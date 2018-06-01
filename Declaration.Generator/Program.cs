@@ -1,6 +1,5 @@
 ﻿using Declaration.Generator.Types;
-using System;
-using System.IO;
+using System.Collections.Generic;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 using static System.Environment;
@@ -12,28 +11,28 @@ namespace Declaration.Generator
 {
     public static class Program
     {
+        private static readonly string _declarationPath = Combine(CurrentDirectory, "Blocks");
         private static readonly Deserializer _deserializer = new DeserializerBuilder()
             .WithNamingConvention(new CamelCaseNamingConvention())
             .Build();
 
         public static void Main(string[] args)
         {
-            // TODO Read yml layers
-
-            var blocks = EnumerateDirectories(Combine(CurrentDirectory, "Blocks"));
-            foreach (var block in blocks)
-            {
-                var layers = EnumerateFiles(block);
-                foreach (var layer in layers)
-                {
-                    var yaml = ReadAllText(layer);
-                    var foo = _deserializer.Deserialize<Layer>(yaml);
-                }
-            }
+            // Read yml layers
+            var layers = GetLayers();
 
             // TODO compose unified declaration
 
             // TODO write Declaration.Code.cs file
+        }
+
+        private static Layer GetLayer(in string layerYml)
+            => _deserializer.Deserialize<Layer>(ReadAllText(layerYml));
+
+        private static IEnumerable<Layer> GetLayers()
+        {
+            foreach (var block in EnumerateDirectories(_declarationPath))
+                yield return GetLayer(in block);
         }
     }
 }
