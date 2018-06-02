@@ -18,12 +18,12 @@ Each `Element` has one or more of the following:
 
 ### Element Kinds
 
-| Kind               | Sample Implementation Story     |
-| ------------------:| -------------------------------:|
-| Datum              | "Experienced events             |
-| DatumLabel         | are labeled,                    |
-| Hierarchy          | then meta-classified            |
-| HierarchyAttribute | into diagnostic-labeling mesh." |
+| Kind                 | Sample Implementation Story     |
+| --------------------:| -------------------------------:|
+| `Datum`              | "Experienced events             |
+| `DatumLabel`         | are labeled,                    |
+| `Hierarchy`          | then meta-classified            |
+| `HierarchyAttribute` | into diagnostic-labeling mesh." |
 
 ### Stacks of Layered Blocks
 
