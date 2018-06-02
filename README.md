@@ -1,12 +1,12 @@
-# MicroserviceMesh
+# Microservice Mesh
 
-Use YAML to compose a SQL Server relational data model and generate .NET Core atomic microservices.
+Compose a SQL Server relational data model & generate .NET Core atomic microservices with YAML declarations.
 
 Microservices (one for each entity & operation-type) form network mesh over shared relational database.
 
 ## Elements
 
-Each `Element` forms a code concept, entity, SQL table, Azure Table, Pay-per-view & data-ownership smart contract, etc.
+Each `Element` forms a code concept, entity, SQL table, Azure Table, pay-per-view & data-ownership smart contract, etc.
 
 Each `Element` has one or more of the following:
   - !TODO Write microservice
