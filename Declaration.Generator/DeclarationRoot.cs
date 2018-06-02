@@ -5,9 +5,11 @@ namespace Declaration.Generator
 {
     public class DeclarationRoot
     {
-        public DeclarationRoot(in IEnumerable<Layer> layers)
-        {
+        public DeclarationRoot(in IEnumerable<Layer> layers) => Layers = layers;
 
-        }
+        public IEnumerable<Layer> Layers { get; set; }
+
+        public Queue<Layer> GetLayerStackAsQueue()
+            => new Queue<Layer>(Layers);
     }
 }
