@@ -33,7 +33,7 @@ Each `Layer` of Elements extends the `DbContext` base.
 
 #### Blocks
 
-Each `Block` compartmentalizes groups of Layers.
+Each `Block` contains Layers.
 
 Microservice mesh solutions are generated for blocks or stacks of blocks of layered data-element declarations.
 
