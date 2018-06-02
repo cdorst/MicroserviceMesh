@@ -26,7 +26,22 @@ Each `Element` has one or more of the following:
 | HierarchyAttribute | into diagnostic-labeling mesh." |
 
 ### Stacks of Layered Blocks
+
+#### Layers
+
+Each `Layer` of Elements extends the `DbContext` base.
+
+#### Blocks
+
+Each `Block` compartmentalizes groups of Layers.
+
+Microservice mesh solutions are generated for blocks or stacks of blocks of layered data-element declarations.
+
 ### Trees of Branched Stacks
+
+New-growth `Branch` solutions extend `Block`-stack microservice-mesh `Trunk` solutions.
+
+Base service-fabric mesh API is re-used by up-stream mesh application-trees.
 
 ## Features
 
