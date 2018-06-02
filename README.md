@@ -43,6 +43,12 @@ New-growth `Branch` solutions extend `Block`-stack microservice-mesh `Trunk` sol
 
 Base service-fabric mesh API is re-used by up-stream mesh application-trees.
 
+#### Integration Contracts
+
+Service-fabric mesh application APIs published well defined smart contract & integrations broker application.
+
+Customers purchase smart-contract from integrations broker that integrates their API `Block` mesh-as-a-service solution onto your solution `Stack`.
+
 ## Features
 
 Code generated for each element:
