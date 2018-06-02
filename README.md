@@ -16,6 +16,18 @@ Each `Element` has one or more of the following:
 
 `Element` APIs have one microservice per operation
 
+### Element Kinds
+
+| Kind               | Sample Implementation Story     |
+| ------------------:| -------------------------------:|
+| Datum              | "Experienced events             |
+| DatumLabel         | are labeled,                    |
+| Hierarchy          | then meta-classified            |
+| HierarchyAttribute | into diagnostic-labeling mesh." |
+
+### Stacks of Layered Blocks
+### Trees of Branched Stacks
+
 ## Features
 
 Code generated for each element:
