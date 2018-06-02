@@ -1,6 +1,8 @@
 ﻿using Declaration.Generator.Types;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 using static System.Environment;
@@ -16,18 +18,13 @@ namespace Declaration.Generator
         private static readonly Deserializer _deserializer = new DeserializerBuilder()
             .WithNamingConvention(new CamelCaseNamingConvention())
             .Build();
+        private static readonly string _destinationPath = Combine(new DirectoryInfo(CurrentDirectory).Parent.FullName, "Declaration", "Code.cs");
 
-        public static void Main(string[] args)
-        {
-            // Read yml layers
-            var layers = GetLayers();
+        public static async Task Main(string[] args)
+            => await WriteAllTextAsync(_destinationPath, GetDeclaration().ToString());
 
-            // TODO compose unified declaration
-
-            //   TODO patch-in default values
-
-            // TODO write Declaration.Code.cs file
-        }
+        private static DeclarationRoot GetDeclaration()
+            => new DeclarationRoot(GetLayers());
 
         private static Layer GetLayer(in string path, in string file)
             => _deserializer.Deserialize<Layer>(ReadAllText(Combine(path, file)));
