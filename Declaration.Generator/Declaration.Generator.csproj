@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CDorst.DevOps.Primitives.SourceGraph" Version="12.4.4" />
     <PackageReference Include="YamlDotNet" Version="4.3.1" />
   </ItemGroup>
 

@@ -6,8 +6,4 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="CDorst.DevOps.Primitives.SourceGraph" Version="12.4.4" />
-  </ItemGroup>
-
 </Project>
