@@ -12,19 +12,15 @@ namespace Declaration.Generator
         private static readonly string[] _directory = { new DirectoryInfo(CurrentDirectory).Parent.FullName, "Declaration", "Code" };
 
         public static void WriteFile(in string content, params string[] pathParts)
-             => WriteAllText(
-                 Path(in pathParts),
-                 content);
+             => WriteAllText(Path(in pathParts), content);
 
         private static string Path(in string[] parts)
             => Combine(PathArray(in parts));
 
         private static string[] PathArray(in string[] parts)
-            => _directory
-                .Concat(PathWithFileExtension(parts))
-                .ToArray();
+            => _directory.Concat(WithExtension(parts)).ToArray();
 
-        private static string[] PathWithFileExtension(string[] parts)
+        private static string[] WithExtension(string[] parts)
         {
             var last = parts.Length - 1;
             if (parts[last].EndsWith(_extension)) return parts;
