@@ -18,9 +18,9 @@ namespace Declaration.Generator
             => Combine(PathArray(in parts));
 
         private static string[] PathArray(in string[] parts)
-            => _directory.Concat(WithExtension(parts)).ToArray();
+            => _directory.Concat(parts.WithExtension()).ToArray();
 
-        private static string[] WithExtension(string[] parts)
+        private static string[] WithExtension(this string[] parts)
         {
             var last = parts.Length - 1;
             if (parts[last].EndsWith(_extension)) return parts;
