@@ -6,6 +6,6 @@ namespace Declaration
     public static class Code
     {
         // TODO: Code-generate implementation
-        public static readonly List<Block> Blocks = new List<Block>();
+        public static readonly IEnumerable<Block> Blocks = new List<Block>();
     }
 }
