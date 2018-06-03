@@ -1,12 +1,12 @@
-﻿using System;
-using System.IO;
-using static Jigs.SharedElementHierarchy;
+﻿using System.IO;
+using static Jigs.SharedEntityHierarchy;
+using static System.Environment;
 
 namespace Jigs
 {
     public static class Program
     {
-        internal static readonly string SolutionPath = new DirectoryInfo(Environment.CurrentDirectory).Parent.FullName;
+        internal static readonly string SolutionPath = new DirectoryInfo(CurrentDirectory).Parent.FullName;
 
         public static void Main(string[] args) => WriteFile();
     }
