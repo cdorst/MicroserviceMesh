@@ -8,8 +8,8 @@ namespace Declaration.Generator
 {
     internal static class FileWriter
     {
-        private static readonly string[] _csFileExtension = { ".cs" };
-        private static readonly string[] _destinationRoot = { new DirectoryInfo(CurrentDirectory).Parent.FullName, "Declaration", "Code" };
+        private static readonly string[] _fileExtension = { ".cs" };
+        private static readonly string[] _rootDirectory = { new DirectoryInfo(CurrentDirectory).Parent.FullName, "Declaration", "Code" };
 
         public static void WriteFile(in string content, params string[] pathParts)
              => WriteAllText(
@@ -17,12 +17,12 @@ namespace Declaration.Generator
                  content);
 
         private static string GetFilePath(in string[] pathParts)
-            => Combine(GetFilePathPartArray(in pathParts));
+            => Combine(GetFilePathArray(in pathParts));
 
-        private static string[] GetFilePathPartArray(in string[] pathParts)
-            => _destinationRoot
+        private static string[] GetFilePathArray(in string[] pathParts)
+            => _rootDirectory
                 .Concat(pathParts)
-                .Concat(_csFileExtension)
+                .Concat(_fileExtension)
                 .ToArray();
     }
 }
