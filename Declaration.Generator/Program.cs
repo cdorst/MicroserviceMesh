@@ -22,11 +22,14 @@ namespace Declaration.Generator
 
         private static Layer GetLayer(in string path, in string file)
         {
-            var layer = _deserializer.Deserialize<Layer>(ReadAllText(Combine(path, file)));
+            var layer = GetLayerFromYaml(in path, in file);
             layer.Name = file; // TODO parse name
             layer.BlockName = path; // TODO parse name
             return layer;
         }
+
+        private static Layer GetLayerFromYaml(in string path, in string file)
+            => _deserializer.Deserialize<Layer>(ReadAllText(Combine(path, file)));
 
         private static IEnumerable<Layer> GetLayers()
         {
