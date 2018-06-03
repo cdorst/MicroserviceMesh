@@ -1,11 +1,14 @@
 ﻿using Declaration.Generator.Types;
-using System;
+using static Declaration.Generator.DeclarationCodeGenerator;
 
 namespace Declaration.Generator
 {
-    public static class DeclarationFileExtensions
+    internal static class DeclarationFileExtensions
     {
         public static DeclarationFile AsDeclarationFile(this Layer layer)
-            => throw new NotImplementedException();
+            => GetDeclaration(in layer);
+
+        private static DeclarationFile GetDeclaration(in Layer layer)
+            => new DeclarationFile(GenerateCode(in layer), layer.GetPathParts());
     }
 }
