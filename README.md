@@ -4,19 +4,19 @@ Compose a SQL Server relational data model & generate .NET Core atomic microserv
 
 Microservices (one for each entity & operation-type) form network mesh over shared relational database.
 
-## Elements
+## Entities
 
-Each `Element` forms a code concept, entity, SQL table, Azure Table, pay-per-view & data-ownership smart contract, etc.
+Each `Entity` forms a code concept, entity, SQL table, Azure Table, pay-per-view & data-ownership smart contract, etc.
 
-Each `Element` has one or more of the following:
+Each `Entity` has one or more of the following:
   - !TODO Write microservice
   - !TODO Read microservice
   - !TODO Delete microservice
   - !TODO Permissions microservices
 
-`Element` APIs have one microservice per operation
+`Entity` APIs have one microservice per operation
 
-### Element Kinds
+### Entity Kinds
 
 | Kind                 | Sample Implementation Story     |
 | --------------------:| -------------------------------:|
@@ -29,13 +29,13 @@ Each `Element` has one or more of the following:
 
 #### Layers
 
-Each `Layer` of Elements extends the `DbContext` base.
+Each `Layer` of Entities extends the `DbContext` base.
 
 #### Blocks
 
 Each `Block` contains Layers.
 
-Microservice mesh solutions are generated for blocks or stacks of blocks of layered data-element declarations.
+Microservice mesh solutions are generated for blocks or stacks of blocks of layered data-entity declarations.
 
 ### Trees of Branched Stacks
 
