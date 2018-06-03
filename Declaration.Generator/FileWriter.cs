@@ -13,18 +13,18 @@ namespace Declaration.Generator
 
         public static void WriteFile(in string content, params string[] pathParts)
              => WriteAllText(
-                 GetFilePath(in pathParts),
+                 Path(in pathParts),
                  content);
 
-        private static string GetFilePath(in string[] parts)
-            => Combine(GetFilePathArray(in parts));
+        private static string Path(in string[] parts)
+            => Combine(PathArray(in parts));
 
-        private static string[] GetFilePathArray(in string[] parts)
+        private static string[] PathArray(in string[] parts)
             => _directory
-                .Concat(GetPathPartsWithFileExtension(parts))
+                .Concat(PathWithFileExtension(parts))
                 .ToArray();
 
-        private static string[] GetPathPartsWithFileExtension(string[] parts)
+        private static string[] PathWithFileExtension(string[] parts)
         {
             var last = parts.Length - 1;
             if (parts[last].EndsWith(_extension)) return parts;
