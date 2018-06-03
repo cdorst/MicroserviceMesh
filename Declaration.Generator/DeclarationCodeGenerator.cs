@@ -1,5 +1,4 @@
 ﻿using Declaration.Generator.Types;
-using System;
 using static DevOps.Primitives.SourceGraph.Helpers.DotNetCore.Common.Files.CSharpCode;
 using static System.Environment;
 using static System.String;
@@ -13,6 +12,18 @@ namespace Declaration.Generator
         private static readonly string _copyrightValue = Concat("Copyright © ",
             IsNullOrWhiteSpace(_copyrightEnvironmentValue) ? "Christopher Dorst" : _copyrightEnvironmentValue);
 
-        public static string GenerateCode(in Layer layer) => throw new NotImplementedException(); // CSharpStaticClass(_copyrightValue, ProjectName, layer.Name)
+        public static DeclarationFile GenerateCode(in Layer layer)
+        {
+            var pathParts = layer.GetPathParts();
+            return new DeclarationFile(
+                GetTypeDeclaration(in layer, in pathParts),
+                pathParts);
+        }
+
+        private static string GetTypeDeclaration(in Layer layer, in string[] pathParts)
+            => CSharpStaticClass(_copyrightValue, ProjectName, layer.Name, GetTypeNamespace(in pathParts)).Content.Value; // TODO add type members
+
+        private static string GetTypeNamespace(in string[] pathParts)
+            => Concat("Declaration.Code", pathParts[0], ".", pathParts[1]);
     }
 }
