@@ -9,7 +9,7 @@ namespace Declaration.Generator
     internal static class DeclarationCodeGenerator
     {
         private const string ProjectName = nameof(Declaration);
-        private static readonly string _copyrightEnvironmentValue = GetEnvironmentVariable("FooBar");
+        private static readonly string _copyrightEnvironmentValue = GetEnvironmentVariable("CodeGenerator_Copyright");
         private static readonly string _copyrightValue = Concat("Copyright © ",
             IsNullOrWhiteSpace(_copyrightEnvironmentValue) ? "Christopher Dorst" : _copyrightEnvironmentValue);
 
