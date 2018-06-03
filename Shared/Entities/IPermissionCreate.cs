@@ -1,19 +1,19 @@
 ﻿using System;
 
-namespace Shared.Elements
+namespace Shared.Entities
 {
-    public interface IPermissionCreate<TElement, TKey, TDatum, TDatumKey, TDatumValue> 
-        : IPermission<TElement, TKey>
-        where TElement : IPermissionCreate<TElement, TKey, TDatum, TDatumKey, TDatumValue>
+    public interface IPermissionCreate<TEntity, TKey, TDatum, TDatumKey, TDatumValue> 
+        : IPermission<TEntity, TKey>
+        where TEntity : IPermissionCreate<TEntity, TKey, TDatum, TDatumKey, TDatumValue>
         where TKey : unmanaged, IEquatable<TKey>
         where TDatumKey : unmanaged, IEquatable<TDatumKey>
         where TDatum : IDatum<TDatum, TDatumKey, TDatumValue>
     {
     }
 
-    public interface IPermissionCreate<TElement, TKey, TDatumLabel, TDatumLabelKey, TDatum, TDatumKey, TDatumValue>
-        : IPermission<TElement, TKey>
-        where TElement : IPermissionCreate<TElement, TKey, TDatumLabel, TDatumLabelKey, TDatum, TDatumKey, TDatumValue>
+    public interface IPermissionCreate<TEntity, TKey, TDatumLabel, TDatumLabelKey, TDatum, TDatumKey, TDatumValue>
+        : IPermission<TEntity, TKey>
+        where TEntity : IPermissionCreate<TEntity, TKey, TDatumLabel, TDatumLabelKey, TDatum, TDatumKey, TDatumValue>
         where TKey : unmanaged, IEquatable<TKey>
         where TDatumKey : unmanaged, IEquatable<TDatumKey>
         where TDatumLabelKey : unmanaged, IEquatable<TDatumLabelKey>
@@ -22,9 +22,9 @@ namespace Shared.Elements
     {
     }
 
-    public interface IPermissionCreate<TElement, TKey, THierarchy, THierarchyKey>
-        : IPermission<TElement, TKey>
-        where TElement : IPermissionCreate<TElement, TKey, THierarchy, THierarchyKey>
+    public interface IPermissionCreate<TEntity, TKey, THierarchy, THierarchyKey>
+        : IPermission<TEntity, TKey>
+        where TEntity : IPermissionCreate<TEntity, TKey, THierarchy, THierarchyKey>
         where TKey : unmanaged, IEquatable<TKey>
         where THierarchyKey : unmanaged, IEquatable<THierarchyKey>
         where THierarchy : IHierarchy<THierarchy, THierarchyKey>

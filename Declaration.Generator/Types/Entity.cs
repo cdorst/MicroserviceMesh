@@ -5,14 +5,14 @@ using System.Collections.Generic;
 
 namespace Declaration.Generator.Types
 {
-    public class Element : TypedKeyedElement
+    public class Entity : DifferentiatedEntity
     {
         public List<Hierarchy> Hierarchies { get; set; }
         public List<Label> Labels { get; set; }
         public Reference Reference { get; set; }
         public Value Value { get; set; }
 
-        public Kind GetElementKind() => 
+        public Kind GetElementKind() =>
             Reference == null && Value != null ? Kind.Datum
             : Value == null && Reference != null ? Kind.DatumLabel
             : Value != null && Reference != null ? Kind.HierarchyAttribute

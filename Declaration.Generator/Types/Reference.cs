@@ -2,7 +2,7 @@
 
 namespace Declaration.Generator.Types
 {
-    public class Reference : TypedKeyedElement
+    public class Reference : DifferentiatedEntity
     {
     }
 }

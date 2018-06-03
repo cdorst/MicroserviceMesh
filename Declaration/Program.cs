@@ -1,19 +1,23 @@
 ﻿using Declaration.Generator.Types;
 using System;
+using System.Collections.Generic;
 
 namespace Declaration
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static void Main(string[] args = default)
         {
-            foreach (var block in Code.Blocks)
-                foreach (var family in block.Families)
-                    foreach (var element in family.Elements)
-                        WriteFile(in element);
         }
 
-        public static void WriteFile(in Element element)
+        private static IEnumerable<Layer> GetLayers()
+        {
+            foreach (var block in Code.Blocks)
+                foreach (var layer in block.Layers)
+                    yield return layer;
+        }
+
+        private static void WriteFile(in Entity entity)
             => throw new NotImplementedException();
     }
 }

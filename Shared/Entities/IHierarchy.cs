@@ -1,21 +1,21 @@
 using System;
 
-namespace Shared.Elements
+namespace Shared.Entities
 {
-	public interface IHierarchy<TElement, TKey> : IElement<TElement, TKey>
+	public interface IHierarchy<TEntity, TKey> : IEntity<TEntity, TKey>
 		where TKey : unmanaged, IEquatable<TKey>
-		where TElement : IElement<TElement, TKey>
+		where TEntity : IEntity<TEntity, TKey>
 	{
 	}
 
-	public interface IHierarchy<TElement, TKey,
+	public interface IHierarchy<TEntity, TKey,
 		THierarchy1, THierarchyKey1,
 		THierarchy2, THierarchyKey2>
-		: IHierarchy<TElement, TKey>,
+		: IHierarchy<TEntity, TKey>,
 			IHierarchyMemberHierarchy1<THierarchy1, THierarchyKey1>,
 			IHierarchyMemberHierarchy2<THierarchy2, THierarchyKey2>
 		where TKey : unmanaged, IEquatable<TKey>
-		where TElement : IElement<TElement, TKey>
+		where TEntity : IEntity<TEntity, TKey>
 		where THierarchyKey1 : unmanaged, IEquatable<THierarchyKey1>
 		where THierarchy1 : IHierarchy<THierarchy1, THierarchyKey1>
 		where THierarchyKey2 : unmanaged, IEquatable<THierarchyKey2>
@@ -23,15 +23,15 @@ namespace Shared.Elements
 	{
 	}
 
-	public interface IHierarchy<TElement, TKey,
+	public interface IHierarchy<TEntity, TKey,
 		THierarchy1, THierarchyKey1,
 		THierarchy2, THierarchyKey2,
 		THierarchy3, THierarchyKey3>
-		: IHierarchy<TElement, TKey, THierarchy1, THierarchyKey1,THierarchy2, THierarchyKey2>,
+		: IHierarchy<TEntity, TKey, THierarchy1, THierarchyKey1,THierarchy2, THierarchyKey2>,
 			IHierarchyMemberHierarchy1<THierarchy1, THierarchyKey1>,
 			IHierarchyMemberHierarchy2<THierarchy2, THierarchyKey2>
 		where TKey : unmanaged, IEquatable<TKey>
-		where TElement : IElement<TElement, TKey>
+		where TEntity : IEntity<TEntity, TKey>
 		where THierarchyKey1 : unmanaged, IEquatable<THierarchyKey1>
 		where THierarchy1 : IHierarchy<THierarchy1, THierarchyKey1>
 		where THierarchyKey2 : unmanaged, IEquatable<THierarchyKey2>
@@ -41,12 +41,12 @@ namespace Shared.Elements
 	{
 	}
 
-	public interface IHierarchy<TElement, TKey,
+	public interface IHierarchy<TEntity, TKey,
 		TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1>
-		: IHierarchy<TElement, TKey>,
+		: IHierarchy<TEntity, TKey>,
 			IHierarchyMemberDatumLabel1<TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1>
 		where TKey : unmanaged, IEquatable<TKey>
-		where TElement : IElement<TElement, TKey>
+		where TEntity : IEntity<TEntity, TKey>
 		where TDatumKey1 : unmanaged, IEquatable<TDatumKey1>
 		where TDatumLabelKey1 : unmanaged, IEquatable<TDatumLabelKey1>
 		where TDatum1 : IDatum<TDatum1, TDatumKey1, TDatumValue1>
@@ -54,13 +54,13 @@ namespace Shared.Elements
 	{
 	}
 
-	public interface IHierarchy<TElement, TKey,
+	public interface IHierarchy<TEntity, TKey,
 		TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1,
 		THierarchy1, THierarchyKey1>
-		: IHierarchy<TElement, TKey, TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1>,
+		: IHierarchy<TEntity, TKey, TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1>,
 			IHierarchyMemberDatumLabel1<TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1>
 		where TKey : unmanaged, IEquatable<TKey>
-		where TElement : IElement<TElement, TKey>
+		where TEntity : IEntity<TEntity, TKey>
 		where TDatumKey1 : unmanaged, IEquatable<TDatumKey1>
 		where TDatumLabelKey1 : unmanaged, IEquatable<TDatumLabelKey1>
 		where TDatum1 : IDatum<TDatum1, TDatumKey1, TDatumValue1>
@@ -70,15 +70,15 @@ namespace Shared.Elements
 	{
 	}
 
-	public interface IHierarchy<TElement, TKey,
+	public interface IHierarchy<TEntity, TKey,
 		TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1,
 		THierarchy1, THierarchyKey1,
 		THierarchy2, THierarchyKey2>
-		: IHierarchy<TElement, TKey, TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1, THierarchy1, THierarchyKey1>,
+		: IHierarchy<TEntity, TKey, TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1, THierarchy1, THierarchyKey1>,
 			IHierarchyMemberDatumLabel1<TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1>,
 			IHierarchyMemberHierarchy1<THierarchy1, THierarchyKey1>
 		where TKey : unmanaged, IEquatable<TKey>
-		where TElement : IElement<TElement, TKey>
+		where TEntity : IEntity<TEntity, TKey>
 		where TDatumKey1 : unmanaged, IEquatable<TDatumKey1>
 		where TDatumLabelKey1 : unmanaged, IEquatable<TDatumLabelKey1>
 		where TDatum1 : IDatum<TDatum1, TDatumKey1, TDatumValue1>
@@ -90,17 +90,17 @@ namespace Shared.Elements
 	{
 	}
 
-	public interface IHierarchy<TElement, TKey,
+	public interface IHierarchy<TEntity, TKey,
 		TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1,
 		THierarchy1, THierarchyKey1,
 		THierarchy2, THierarchyKey2,
 		THierarchy3, THierarchyKey3>
-		: IHierarchy<TElement, TKey, TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1, THierarchy1, THierarchyKey1,THierarchy2, THierarchyKey2>,
+		: IHierarchy<TEntity, TKey, TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1, THierarchy1, THierarchyKey1,THierarchy2, THierarchyKey2>,
 			IHierarchyMemberDatumLabel1<TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1>,
 			IHierarchyMemberHierarchy1<THierarchy1, THierarchyKey1>,
 			IHierarchyMemberHierarchy2<THierarchy2, THierarchyKey2>
 		where TKey : unmanaged, IEquatable<TKey>
-		where TElement : IElement<TElement, TKey>
+		where TEntity : IEntity<TEntity, TKey>
 		where TDatumKey1 : unmanaged, IEquatable<TDatumKey1>
 		where TDatumLabelKey1 : unmanaged, IEquatable<TDatumLabelKey1>
 		where TDatum1 : IDatum<TDatum1, TDatumKey1, TDatumValue1>
@@ -114,13 +114,13 @@ namespace Shared.Elements
 	{
 	}
 
-	public interface IHierarchy<TElement, TKey,
+	public interface IHierarchy<TEntity, TKey,
 		TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1,
 		TDatumLabel2, TDatumLabelKey2, TDatum2, TDatumKey2, TDatumValue2>
-		: IHierarchy<TElement, TKey, TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1>,
+		: IHierarchy<TEntity, TKey, TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1>,
 			IHierarchyMemberDatumLabel1<TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1>
 		where TKey : unmanaged, IEquatable<TKey>
-		where TElement : IElement<TElement, TKey>
+		where TEntity : IEntity<TEntity, TKey>
 		where TDatumKey1 : unmanaged, IEquatable<TDatumKey1>
 		where TDatumLabelKey1 : unmanaged, IEquatable<TDatumLabelKey1>
 		where TDatum1 : IDatum<TDatum1, TDatumKey1, TDatumValue1>
@@ -132,15 +132,15 @@ namespace Shared.Elements
 	{
 	}
 
-	public interface IHierarchy<TElement, TKey,
+	public interface IHierarchy<TEntity, TKey,
 		TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1,
 		TDatumLabel2, TDatumLabelKey2, TDatum2, TDatumKey2, TDatumValue2,
 		THierarchy1, THierarchyKey1>
-		: IHierarchy<TElement, TKey, TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1, THierarchy1, THierarchyKey1>,
+		: IHierarchy<TEntity, TKey, TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1, THierarchy1, THierarchyKey1>,
 			IHierarchyMemberDatumLabel1<TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1>,
 			IHierarchyMemberHierarchy1<THierarchy1, THierarchyKey1>
 		where TKey : unmanaged, IEquatable<TKey>
-		where TElement : IElement<TElement, TKey>
+		where TEntity : IEntity<TEntity, TKey>
 		where TDatumKey1 : unmanaged, IEquatable<TDatumKey1>
 		where TDatumLabelKey1 : unmanaged, IEquatable<TDatumLabelKey1>
 		where TDatum1 : IDatum<TDatum1, TDatumKey1, TDatumValue1>
@@ -154,17 +154,17 @@ namespace Shared.Elements
 	{
 	}
 
-	public interface IHierarchy<TElement, TKey,
+	public interface IHierarchy<TEntity, TKey,
 		TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1,
 		TDatumLabel2, TDatumLabelKey2, TDatum2, TDatumKey2, TDatumValue2,
 		THierarchy1, THierarchyKey1,
 		THierarchy2, THierarchyKey2>
-		: IHierarchy<TElement, TKey, TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1, TDatumLabel2, TDatumLabelKey2, TDatum2, TDatumKey2, TDatumValue2, THierarchy1, THierarchyKey1>,
+		: IHierarchy<TEntity, TKey, TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1, TDatumLabel2, TDatumLabelKey2, TDatum2, TDatumKey2, TDatumValue2, THierarchy1, THierarchyKey1>,
 			IHierarchyMemberDatumLabel1<TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1>,
 			IHierarchyMemberDatumLabel2<TDatumLabel2, TDatumLabelKey2, TDatum2, TDatumKey2, TDatumValue2>,
 			IHierarchyMemberHierarchy1<THierarchy1, THierarchyKey1>
 		where TKey : unmanaged, IEquatable<TKey>
-		where TElement : IElement<TElement, TKey>
+		where TEntity : IEntity<TEntity, TKey>
 		where TDatumKey1 : unmanaged, IEquatable<TDatumKey1>
 		where TDatumLabelKey1 : unmanaged, IEquatable<TDatumLabelKey1>
 		where TDatum1 : IDatum<TDatum1, TDatumKey1, TDatumValue1>
@@ -180,19 +180,19 @@ namespace Shared.Elements
 	{
 	}
 
-	public interface IHierarchy<TElement, TKey,
+	public interface IHierarchy<TEntity, TKey,
 		TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1,
 		TDatumLabel2, TDatumLabelKey2, TDatum2, TDatumKey2, TDatumValue2,
 		THierarchy1, THierarchyKey1,
 		THierarchy2, THierarchyKey2,
 		THierarchy3, THierarchyKey3>
-		: IHierarchy<TElement, TKey, TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1, TDatumLabel2, TDatumLabelKey2, TDatum2, TDatumKey2, TDatumValue2, THierarchy1, THierarchyKey1,THierarchy2, THierarchyKey2>,
+		: IHierarchy<TEntity, TKey, TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1, TDatumLabel2, TDatumLabelKey2, TDatum2, TDatumKey2, TDatumValue2, THierarchy1, THierarchyKey1,THierarchy2, THierarchyKey2>,
 			IHierarchyMemberDatumLabel1<TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1>,
 			IHierarchyMemberDatumLabel2<TDatumLabel2, TDatumLabelKey2, TDatum2, TDatumKey2, TDatumValue2>,
 			IHierarchyMemberHierarchy1<THierarchy1, THierarchyKey1>,
 			IHierarchyMemberHierarchy2<THierarchy2, THierarchyKey2>
 		where TKey : unmanaged, IEquatable<TKey>
-		where TElement : IElement<TElement, TKey>
+		where TEntity : IEntity<TEntity, TKey>
 		where TDatumKey1 : unmanaged, IEquatable<TDatumKey1>
 		where TDatumLabelKey1 : unmanaged, IEquatable<TDatumLabelKey1>
 		where TDatum1 : IDatum<TDatum1, TDatumKey1, TDatumValue1>
@@ -210,15 +210,15 @@ namespace Shared.Elements
 	{
 	}
 
-	public interface IHierarchy<TElement, TKey,
+	public interface IHierarchy<TEntity, TKey,
 		TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1,
 		TDatumLabel2, TDatumLabelKey2, TDatum2, TDatumKey2, TDatumValue2,
 		TDatumLabel3, TDatumLabelKey3, TDatum3, TDatumKey3, TDatumValue3>
-		: IHierarchy<TElement, TKey, TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1,TDatumLabel2, TDatumLabelKey2, TDatum2, TDatumKey2, TDatumValue2>,
+		: IHierarchy<TEntity, TKey, TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1,TDatumLabel2, TDatumLabelKey2, TDatum2, TDatumKey2, TDatumValue2>,
 			IHierarchyMemberDatumLabel1<TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1>,
 			IHierarchyMemberDatumLabel2<TDatumLabel2, TDatumLabelKey2, TDatum2, TDatumKey2, TDatumValue2>
 		where TKey : unmanaged, IEquatable<TKey>
-		where TElement : IElement<TElement, TKey>
+		where TEntity : IEntity<TEntity, TKey>
 		where TDatumKey1 : unmanaged, IEquatable<TDatumKey1>
 		where TDatumLabelKey1 : unmanaged, IEquatable<TDatumLabelKey1>
 		where TDatum1 : IDatum<TDatum1, TDatumKey1, TDatumValue1>
@@ -234,17 +234,17 @@ namespace Shared.Elements
 	{
 	}
 
-	public interface IHierarchy<TElement, TKey,
+	public interface IHierarchy<TEntity, TKey,
 		TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1,
 		TDatumLabel2, TDatumLabelKey2, TDatum2, TDatumKey2, TDatumValue2,
 		TDatumLabel3, TDatumLabelKey3, TDatum3, TDatumKey3, TDatumValue3,
 		THierarchy1, THierarchyKey1>
-		: IHierarchy<TElement, TKey, TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1, TDatumLabel2, TDatumLabelKey2, TDatum2, TDatumKey2, TDatumValue2, THierarchy1, THierarchyKey1>,
+		: IHierarchy<TEntity, TKey, TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1, TDatumLabel2, TDatumLabelKey2, TDatum2, TDatumKey2, TDatumValue2, THierarchy1, THierarchyKey1>,
 			IHierarchyMemberDatumLabel1<TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1>,
 			IHierarchyMemberDatumLabel2<TDatumLabel2, TDatumLabelKey2, TDatum2, TDatumKey2, TDatumValue2>,
 			IHierarchyMemberHierarchy1<THierarchy1, THierarchyKey1>
 		where TKey : unmanaged, IEquatable<TKey>
-		where TElement : IElement<TElement, TKey>
+		where TEntity : IEntity<TEntity, TKey>
 		where TDatumKey1 : unmanaged, IEquatable<TDatumKey1>
 		where TDatumLabelKey1 : unmanaged, IEquatable<TDatumLabelKey1>
 		where TDatum1 : IDatum<TDatum1, TDatumKey1, TDatumValue1>
@@ -262,19 +262,19 @@ namespace Shared.Elements
 	{
 	}
 
-	public interface IHierarchy<TElement, TKey,
+	public interface IHierarchy<TEntity, TKey,
 		TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1,
 		TDatumLabel2, TDatumLabelKey2, TDatum2, TDatumKey2, TDatumValue2,
 		TDatumLabel3, TDatumLabelKey3, TDatum3, TDatumKey3, TDatumValue3,
 		THierarchy1, THierarchyKey1,
 		THierarchy2, THierarchyKey2>
-		: IHierarchy<TElement, TKey, TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1, TDatumLabel2, TDatumLabelKey2, TDatum2, TDatumKey2, TDatumValue2, THierarchy1, THierarchyKey1,THierarchy2, THierarchyKey2>,
+		: IHierarchy<TEntity, TKey, TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1, TDatumLabel2, TDatumLabelKey2, TDatum2, TDatumKey2, TDatumValue2, THierarchy1, THierarchyKey1,THierarchy2, THierarchyKey2>,
 			IHierarchyMemberDatumLabel1<TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1>,
 			IHierarchyMemberDatumLabel2<TDatumLabel2, TDatumLabelKey2, TDatum2, TDatumKey2, TDatumValue2>,
 			IHierarchyMemberHierarchy1<THierarchy1, THierarchyKey1>,
 			IHierarchyMemberHierarchy2<THierarchy2, THierarchyKey2>
 		where TKey : unmanaged, IEquatable<TKey>
-		where TElement : IElement<TElement, TKey>
+		where TEntity : IEntity<TEntity, TKey>
 		where TDatumKey1 : unmanaged, IEquatable<TDatumKey1>
 		where TDatumLabelKey1 : unmanaged, IEquatable<TDatumLabelKey1>
 		where TDatum1 : IDatum<TDatum1, TDatumKey1, TDatumValue1>
@@ -294,21 +294,21 @@ namespace Shared.Elements
 	{
 	}
 
-	public interface IHierarchy<TElement, TKey,
+	public interface IHierarchy<TEntity, TKey,
 		TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1,
 		TDatumLabel2, TDatumLabelKey2, TDatum2, TDatumKey2, TDatumValue2,
 		TDatumLabel3, TDatumLabelKey3, TDatum3, TDatumKey3, TDatumValue3,
 		THierarchy1, THierarchyKey1,
 		THierarchy2, THierarchyKey2,
 		THierarchy3, THierarchyKey3>
-		: IHierarchy<TElement, TKey, TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1, TDatumLabel2, TDatumLabelKey2, TDatum2, TDatumKey2, TDatumValue2, TDatumLabel3, TDatumLabelKey3, TDatum3, TDatumKey3, TDatumValue3, THierarchy1, THierarchyKey1,THierarchy2, THierarchyKey2>,
+		: IHierarchy<TEntity, TKey, TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1, TDatumLabel2, TDatumLabelKey2, TDatum2, TDatumKey2, TDatumValue2, TDatumLabel3, TDatumLabelKey3, TDatum3, TDatumKey3, TDatumValue3, THierarchy1, THierarchyKey1,THierarchy2, THierarchyKey2>,
 			IHierarchyMemberDatumLabel1<TDatumLabel1, TDatumLabelKey1, TDatum1, TDatumKey1, TDatumValue1>,
 			IHierarchyMemberDatumLabel2<TDatumLabel2, TDatumLabelKey2, TDatum2, TDatumKey2, TDatumValue2>,
 			IHierarchyMemberDatumLabel3<TDatumLabel3, TDatumLabelKey3, TDatum3, TDatumKey3, TDatumValue3>,
 			IHierarchyMemberHierarchy1<THierarchy1, THierarchyKey1>,
 			IHierarchyMemberHierarchy2<THierarchy2, THierarchyKey2>
 		where TKey : unmanaged, IEquatable<TKey>
-		where TElement : IElement<TElement, TKey>
+		where TEntity : IEntity<TEntity, TKey>
 		where TDatumKey1 : unmanaged, IEquatable<TDatumKey1>
 		where TDatumLabelKey1 : unmanaged, IEquatable<TDatumLabelKey1>
 		where TDatum1 : IDatum<TDatum1, TDatumKey1, TDatumValue1>

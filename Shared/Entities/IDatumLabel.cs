@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace Shared.Elements
+namespace Shared.Entities
 {
-    public interface IDatumLabel<TElement, TKey, TDatum, TDatumKey, TDatumValue> : IElement<TElement, TKey>
+    public interface IDatumLabel<TEntity, TKey, TDatum, TDatumKey, TDatumValue> : IEntity<TEntity, TKey>
         where TKey : unmanaged, IEquatable<TKey>
-        where TElement : IElement<TElement, TKey>
+        where TEntity : IEntity<TEntity, TKey>
         where TDatumKey : unmanaged, IEquatable<TDatumKey>
         where TDatum : IDatum<TDatum, TDatumKey, TDatumValue>
     {

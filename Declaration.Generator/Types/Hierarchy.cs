@@ -2,7 +2,7 @@
 
 namespace Declaration.Generator.Types
 {
-    public class Hierarchy : TypedKeyedElement
+    public class Hierarchy : DifferentiatedEntity
     {
     }
 }

@@ -2,7 +2,7 @@
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Shared.Elements.Primitives
+namespace Shared.Entities.Primitives
 {
     [Table(nameof(AgentIdentifier), Schema = nameof(Primitives))]
     public class AgentIdentifier : IDatumLabel<AgentIdentifier, long, Uuid, long, Guid>

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Shared.Elements.Primitives
+namespace Shared.Entities.Primitives
 {
     [Table(nameof(Uuid), Schema = nameof(Primitives))]
     public class Uuid : IDatum<Uuid, long, Guid>

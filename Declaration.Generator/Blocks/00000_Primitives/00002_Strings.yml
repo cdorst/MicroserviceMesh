@@ -1,4 +1,4 @@
-﻿elements:
+﻿entities:
   - type: StringAscii900
     keySize: 64
     value:

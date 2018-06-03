@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace Shared.Elements
+namespace Shared.Entities
 {
-    public interface IHierarchyAttributable<TElement, TKey, TFlags>
+    public interface IHierarchyAttributable<TEntity, TKey, TFlags>
         where TKey : unmanaged, IEquatable<TKey>
-        where TElement : IHierarchy<TElement, TKey>
+        where TEntity : IHierarchy<TEntity, TKey>
         where TFlags : Enum
     {
         Enum AttributeFlags { get; }

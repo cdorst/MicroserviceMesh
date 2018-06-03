@@ -1,4 +1,4 @@
-﻿elements:
+﻿entities:
   - type: Uuid
     keySize: 64
     value:

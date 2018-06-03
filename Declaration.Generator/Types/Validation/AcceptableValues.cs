@@ -5,7 +5,7 @@ namespace Declaration.Generator.Types.Validation
 {
     public static class AcceptableValues
     {
-        public static readonly HashSet<byte> KeySizes 
+        public static readonly HashSet<byte> KeySizes
             = new HashSet<byte>
             {
                 (byte)KeySize._8,

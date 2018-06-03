@@ -2,7 +2,7 @@
 
 namespace Declaration.Generator.Types
 {
-    public class Label : TypedKeyedElement
+    public class Label : DifferentiatedEntity
     {
     }
 }

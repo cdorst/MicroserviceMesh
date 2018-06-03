@@ -3,18 +3,18 @@ using Declaration.Generator.Types.ValueTypes;
 
 namespace Declaration.Generator.Types.Bases
 {
-    public abstract class TypedKeyedElement : KeyedElement, ITypeable
+    public abstract class DifferentiatedEntity : KeyedEntity, ITypeable
     {
         public string BlockName { get; set; }
-        public string FamilyName { get; set; }
+        public string LayerName { get; set; }
         public string Namespace { get; set; }
         public string Type { get; set; }
 
         public TypeName GetTypeName()
             => string.IsNullOrWhiteSpace(Type) ? throw new TypeNameNotProvidedException()
             : !string.IsNullOrWhiteSpace(Namespace) ? new TypeName(Namespace, Type)
-            : !string.IsNullOrWhiteSpace(BlockName) && !string.IsNullOrWhiteSpace(FamilyName)
-            ? new TypeName(string.Concat("Model.", BlockName, ".", FamilyName), Type)
+            : !string.IsNullOrWhiteSpace(BlockName) && !string.IsNullOrWhiteSpace(LayerName)
+            ? new TypeName(string.Concat("Model.", BlockName, ".", LayerName), Type)
             : throw new NamespaceNotInferrableException();
     }
 }

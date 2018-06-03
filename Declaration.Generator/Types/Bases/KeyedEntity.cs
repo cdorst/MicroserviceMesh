@@ -5,7 +5,7 @@ using Default = Declaration.Generator.Types.Validation.DefaultValues;
 
 namespace Declaration.Generator.Types.Bases
 {
-    public abstract class KeyedElement : IKeyable
+    public abstract class KeyedEntity : IKeyable
     {
         public byte? KeySize { get; set; }
 

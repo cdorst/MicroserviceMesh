@@ -1,4 +1,4 @@
-﻿elements:
+﻿entities:
   - type: Integer8
     keySize: 8
     value:
