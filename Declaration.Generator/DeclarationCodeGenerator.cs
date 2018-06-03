@@ -24,6 +24,6 @@ namespace Declaration.Generator
             => CSharpStaticClass(_copyrightValue, ProjectName, layer.Name, GetTypeNamespace(in pathParts)).Content.Value; // TODO add type members
 
         private static string GetTypeNamespace(in string[] pathParts)
-            => Concat("Declaration.Code", pathParts[0], ".", pathParts[1]);
+            => Concat(ProjectName, ".Code", pathParts[0], ".", pathParts[1]);
     }
 }
