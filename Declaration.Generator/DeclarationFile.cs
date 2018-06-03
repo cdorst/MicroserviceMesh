@@ -1,6 +1,6 @@
 ﻿namespace Declaration.Generator
 {
-    public readonly ref struct DeclarationFile
+    public readonly struct DeclarationFile
     {
         public readonly string Contents;
         public readonly string[] PathParts;
