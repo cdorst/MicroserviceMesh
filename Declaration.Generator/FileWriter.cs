@@ -9,7 +9,7 @@ namespace Declaration.Generator
     internal static class FileWriter
     {
         private const string _extension = ".cs";
-        private static readonly string[] _directory = { new DirectoryInfo(CurrentDirectory).Parent.FullName, "Declaration", "Code" };
+        private static readonly string[] _root = { new DirectoryInfo(CurrentDirectory).Parent.FullName, "Declaration", "Code" };
 
         public static void WriteFile(in string content, params string[] pathParts)
              => WriteAllText(Path(in pathParts), content);
@@ -18,7 +18,7 @@ namespace Declaration.Generator
             => Combine(PathArray(in parts));
 
         private static string[] PathArray(in string[] parts)
-            => _directory.Concat(parts.WithExtension()).ToArray();
+            => _root.Concat(parts.WithExtension()).ToArray();
 
         private static string[] WithExtension(this string[] parts)
         {
