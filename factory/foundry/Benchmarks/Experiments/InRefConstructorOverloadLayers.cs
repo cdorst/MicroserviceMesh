@@ -13,8 +13,6 @@ namespace Benchmarks.Experiments
     {
         private static class Constants
         {
-            public const int Iterations = 1000;
-
             public static readonly string Block = nameof(Block);
             public static readonly string Layer = nameof(Layer);
             public static readonly string Type = nameof(Type);
@@ -23,24 +21,12 @@ namespace Benchmarks.Experiments
         }
 
         [Benchmark]
-        public void WithInKeyword()
-        {
-            for (int i = 0; i < Constants.Iterations; i++)
-                new WithInKeyword(Constants.Block, Constants.Layer, Constants.Type, Constants.ValueType, Constants.ValueNamespace);
-        }
+        public WithInKeyword WithInKeyword() => new WithInKeyword(Constants.Block, Constants.Layer, Constants.Type, Constants.ValueType, Constants.ValueNamespace);
 
         [Benchmark]
-        public void WithInKeyword_InRefInvocation()
-        {
-            for (int i = 0; i < Constants.Iterations; i++)
-                new WithInKeyword(in Constants.Block, in Constants.Layer, in Constants.Type, in Constants.ValueType, in Constants.ValueNamespace);
-        }
+        public WithInKeyword WithInKeyword_InRefInvocation() => new WithInKeyword(in Constants.Block, in Constants.Layer, in Constants.Type, in Constants.ValueType, in Constants.ValueNamespace);
 
         [Benchmark]
-        public void WithoutInKeyword()
-        {
-            for (int i = 0; i < Constants.Iterations; i++)
-                new WithoutInKeyword(Constants.Block, Constants.Layer, Constants.Type, Constants.ValueType, Constants.ValueNamespace);
-        }
+        public WithoutInKeyword WithoutInKeyword() => new WithoutInKeyword(Constants.Block, Constants.Layer, Constants.Type, Constants.ValueType, Constants.ValueNamespace);
     }
 }
