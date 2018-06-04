@@ -49,6 +49,36 @@ Service-fabric mesh application APIs published well defined smart contract & int
 
 Customers purchase smart-contract from integrations broker that integrates their API `Block` mesh-as-a-service solution onto your solution `Stack`.
 
+## Factory
+
+`/factory` operations streamline production of `Solution` artifacts.
+
+### Generator
+
+Use `Generator` within `/factory` to generate `Solution` artifacts from `/factory/declaration` work-specification declarations.
+
+### Declaration
+
+`/factory/declaration` `Declaration` project containers `Layers` of work-specification declarations.
+
+#### Declaration.Generator
+
+Use `Declaration.Generator` within `/factory/declaration` to generate `Declaration` artifacts from YAML specifications under the project's `/Declaration` directory.
+
+Run `.\generate-declaration.ps1` or `./generate-declaration.sh` at the repository root to craft the `/factory/declaration/Declaration/Layers`-directory artifacts using the `Declaration.Generator`.
+
+### Foundry
+
+`/factory` meta-work (e.g. `Benchmarks` & `Jigs`) is located within the `/factory/foundry`.
+
+#### Benchmarks
+
+The `Benchmarks`
+
+#### Jigs
+
+The `Jigs` project contains templates for code-declaration workpieces moving through the code-generation saw.
+
 ## Features
 
 Code generated for each element:
