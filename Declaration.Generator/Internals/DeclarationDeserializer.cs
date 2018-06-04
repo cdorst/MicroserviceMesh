@@ -1,5 +1,6 @@
 ﻿using Declaration.Generator.Internals.DeclarationTypes;
 using System.Collections.Generic;
+using System.Linq;
 using static Declaration.Generator.Internals.DeserializerFactory;
 using static System.Environment;
 using static System.IO.Directory;
@@ -11,6 +12,7 @@ namespace Declaration.Generator.Internals
     internal static class DeclarationDeserializer
     {
         private static readonly string _path = Combine(CurrentDirectory, nameof(Declaration));
+        private static readonly char[] _separators = { '/', '\\' };
 
         public static IEnumerable<Layer> DeserializeDeclaration()
         {
@@ -22,10 +24,13 @@ namespace Declaration.Generator.Internals
         private static Layer GetLayer(in string path, in string file)
         {
             var layer = GetLayerFromYaml(in path, in file);
-            layer.Name = file; // TODO parse name
-            layer.BlockName = path; // TODO parse name
+            layer.BlockName = NameOfBlock(in path);
+            layer.Name = NameOfLayer(in file);
             return layer;
         }
+
+        private static string NameOfBlock(in string path) => path.Split(_separators).Last();
+        private static string NameOfLayer(in string file) => file.Split('.').First();
 
         private static Layer GetLayerFromYaml(in string path, in string file)
             => Deserializer.Deserialize<Layer>(ReadAllText(Combine(path, file)));
