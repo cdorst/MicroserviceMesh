@@ -7,7 +7,7 @@ namespace Declaration.Generator.Internals.DeclarationTypes.Bases
 {
     public abstract class KeyedEntity : IKeyable
     {
-        public KeyedEntity(byte? keySize = default)
+        public KeyedEntity(in byte? keySize = default)
             => KeySize = keySize;
 
         public byte? KeySize { get; set; }
