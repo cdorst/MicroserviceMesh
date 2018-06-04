@@ -18,11 +18,23 @@ namespace Declaration.Generator.Internals
         {
             var path = Concat(layer.BlockName, "_", layer.Name);
 
-            // yield return /Layers/{name}/Layer.cs
-            yield return new DeclarationFile(
+            // yield return /Layers/{path}/Layer.cs
+            yield return GetLayer(in layer, in path, in configuration);
+
+            // yield return /Layers/{path}/Entities/{name}.cs
+            foreach (var entity in layer.Entities)
+                yield return GetEntity(in layer, in path, in configuration);
+        }
+
+        private static DeclarationFile GetEntity(in Layer layer, in string path, in IConfigurationRoot configuration)
+            => new DeclarationFile(
                 GetTypeDeclaration(in layer, GetTypeNamespace(in path), in configuration),
                 path);
-        }
+
+        private static DeclarationFile GetLayer(in Layer layer, in string path, in IConfigurationRoot configuration)
+            => new DeclarationFile(
+                GetTypeDeclaration(in layer, GetTypeNamespace(in path), in configuration),
+                path);
 
         private static string GetTypeDeclaration(in Layer layer, in string @namespace, in IConfigurationRoot configuration)
             => CSharpStaticClass(
