@@ -5,6 +5,14 @@ namespace Declaration.Generator.Internals.DeclarationTypes.Bases
 {
     public abstract class DifferentiatedEntity : KeyedEntity, ITypeable
     {
+        public DifferentiatedEntity() { }
+        public DifferentiatedEntity(in string block, in string layer, in string type, in string @namespace = default)
+        {
+            BlockName = block;
+            LayerName = layer;
+            Namespace = @namespace;
+            Type = type;
+        }
         public string BlockName { get; set; }
         public string LayerName { get; set; }
         public string Namespace { get; set; }
