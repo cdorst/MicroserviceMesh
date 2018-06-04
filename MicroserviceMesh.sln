@@ -25,6 +25,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Declaration", "Declaration\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generator", "Generator\Generator.csproj", "{2843B783-AC87-4E2D-B022-5BD46FFEF336}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "factory", "factory", "{A9F4914F-EDB0-43F0-A774-F2A855A1990D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "declaration", "declaration", "{6427E411-C159-43EF-8C0C-6D7090AACBFF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "foundry", "foundry", "{C68F878E-99AB-4830-B221-5CF489C01E6B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +60,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6427E411-C159-43EF-8C0C-6D7090AACBFF} = {A9F4914F-EDB0-43F0-A774-F2A855A1990D}
+		{C68F878E-99AB-4830-B221-5CF489C01E6B} = {A9F4914F-EDB0-43F0-A774-F2A855A1990D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A8683393-4965-45E1-B6A8-48430077AE6B}
