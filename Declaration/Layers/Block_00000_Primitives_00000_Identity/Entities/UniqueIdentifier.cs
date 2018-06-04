@@ -5,6 +5,7 @@ using Declaration.Generator.Internals;
 
 namespace Declaration.Layers.Block_00000_Primitives_00000_Identity
 {
+    /// <summary>Contains declaration describing UniqueIdentifier entity types</summary>
     public static class UniqueIdentifier
     {
     }

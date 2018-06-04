@@ -1,7 +1,9 @@
 ﻿using Declaration.Generator.Internals.DeclarationTypes;
 using DevOps.Primitives.CSharp;
 using Microsoft.Extensions.Configuration;
-using static DevOps.Primitives.CSharp.Helpers.Common.UsingDirectiveLists;
+using static System.String;
+// using Fields = DevOps.Primitives.CSharp.Helpers.Common.FieldLists;
+using Usings = DevOps.Primitives.CSharp.Helpers.Common.UsingDirectiveLists;
 
 namespace Declaration.Generator.Internals.CodeTemplates
 {
@@ -14,11 +16,13 @@ namespace Declaration.Generator.Internals.CodeTemplates
             entity.BlockName = layer.BlockName;
             entity.LayerName = layer.Name;
             var name = entity.GetTypeName().Type;
+            var comment = Concat("Contains declaration describing ", name, " entity types");
             return new DeclarationFile(
-                GetTypeDeclaration(name, GetTypeNamespace(in path), in configuration, in UsingDirectiveList),
+                GetTypeDeclaration(name, GetTypeNamespace(in path), in configuration, in comment, in UsingDirectiveList),
                 path, Entities, name);
         }
 
-        private static readonly UsingDirectiveList UsingDirectiveList = Create("Declaration.Generator.Internals");
+        // TODO // private static readonly FieldList FieldList = Fields.Create() // update NuGet dependency for Field helpers
+        private static readonly UsingDirectiveList UsingDirectiveList = Usings.Create("Declaration.Generator.Internals");
     }
 }

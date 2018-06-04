@@ -5,6 +5,7 @@ using Declaration.Generator.Internals;
 
 namespace Declaration.Layers.Block_00000_Primitives_00001_Integers
 {
+    /// <summary>Contains declaration describing Integer16 entity types</summary>
     public static class Integer16
     {
     }

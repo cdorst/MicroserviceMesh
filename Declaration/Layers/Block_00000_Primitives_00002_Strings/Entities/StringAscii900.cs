@@ -5,6 +5,7 @@ using Declaration.Generator.Internals;
 
 namespace Declaration.Layers.Block_00000_Primitives_00002_Strings
 {
+    /// <summary>Contains declaration describing StringAscii900 entity types</summary>
     public static class StringAscii900
     {
     }
