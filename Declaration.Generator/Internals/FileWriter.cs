@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using static System.Environment;
 using static System.IO.Directory;
@@ -19,10 +20,13 @@ namespace Declaration.Generator.Internals
             WriteAllText(FilePath(in directory, fileName: pathParts.Last()), content);
         }
 
-        private static string DirectoryPath(in string[] pathParts)
-            => Combine(_root.Concat(pathParts.Take(pathParts.Length - 1)).ToArray());
+        private static string DirectoryPath(in string[] parts)
+            => Combine(_root.Concat(parts.WithoutFileName()).ToArray());
 
         private static string FilePath(in string directory, in string fileName)
             => Combine(directory, string.Concat(fileName, _extension));
+
+        private static IEnumerable<string> WithoutFileName(this string[] parts)
+            => parts.Take(parts.Length - 1);
     }
 }
