@@ -10,7 +10,5 @@ namespace Declaration.Generator.Internals.DeclarationTypes
 
         public string Name { get; set; }
         public string BlockName { get; set; }
-
-        public string[] GetPathParts() => new[] { BlockName, Name };
     }
 }
