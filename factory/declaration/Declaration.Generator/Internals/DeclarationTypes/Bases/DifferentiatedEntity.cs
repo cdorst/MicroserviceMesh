@@ -16,6 +16,7 @@ namespace Declaration.Generator.Internals.DeclarationTypes.Bases
             BlockName = block;
             LayerName = layer;
         }
+
         public string BlockName { get; set; }
         public string LayerName { get; set; }
 
