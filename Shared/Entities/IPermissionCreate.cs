@@ -2,7 +2,7 @@
 
 namespace Shared.Entities
 {
-    public interface IPermissionCreate<TEntity, TKey, TDatum, TDatumKey, TDatumValue> 
+    public interface IPermissionCreate<TEntity, TKey, TDatum, TDatumKey, TDatumValue>
         : IPermission<TEntity, TKey>
         where TEntity : IPermissionCreate<TEntity, TKey, TDatum, TDatumKey, TDatumValue>
         where TKey : unmanaged, IEquatable<TKey>
