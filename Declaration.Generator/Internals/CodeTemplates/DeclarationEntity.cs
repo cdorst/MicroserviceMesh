@@ -1,5 +1,7 @@
 ﻿using Declaration.Generator.Internals.DeclarationTypes;
+using DevOps.Primitives.CSharp;
 using Microsoft.Extensions.Configuration;
+using static DevOps.Primitives.CSharp.Helpers.Common.UsingDirectiveLists;
 
 namespace Declaration.Generator.Internals.CodeTemplates
 {
@@ -13,8 +15,10 @@ namespace Declaration.Generator.Internals.CodeTemplates
             entity.LayerName = layer.Name;
             var name = entity.GetTypeName().Type;
             return new DeclarationFile(
-                GetTypeDeclaration(name, GetTypeNamespace(in path), in configuration),
+                GetTypeDeclaration(name, GetTypeNamespace(in path), in configuration, in UsingDirectiveList),
                 path, Entities, name);
         }
+
+        private static readonly UsingDirectiveList UsingDirectiveList = Create("Declaration.Generator.Internals");
     }
 }
