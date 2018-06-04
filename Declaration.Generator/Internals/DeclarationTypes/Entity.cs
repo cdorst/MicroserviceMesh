@@ -13,6 +13,18 @@ namespace Declaration.Generator.Internals.DeclarationTypes
         {
             Value = value;
         }
+        public Entity(in string block, in string layer, in string type, in string valueType, in string valueNamespace = default)
+            : this(in block, in layer, in type, new Value(in valueType, in valueNamespace))
+        {
+        }
+        public Entity(in string block, in string layer, in string type, in string valueType, in Attributes attributes, in string valueNamespace = default)
+            : this(in block, in layer, in type, new Value(in valueType, in attributes, in valueNamespace))
+        {
+        }
+        public Entity(in string block, in string layer, in string type, in string valueType, in ShadowAlternateKey alternateKey, in Attributes attributes = default, in string valueNamespace = default)
+            : this(in block, in layer, in type, new Value(in valueType, in alternateKey, in attributes, in valueNamespace))
+        {
+        }
 
         public List<Hierarchy> Hierarchies { get; set; }
         public List<Label> Labels { get; set; }
