@@ -3,7 +3,7 @@ using Declaration.Generator.Internals.DeclarationTypes.ValueTypes;
 
 namespace Declaration.Generator.Internals.DeclarationTypes.Bases
 {
-    public abstract class DifferentiatedEntity : NamedTypeKeyedEntity, ITypeable
+    public abstract class DifferentiatedEntity : NamedTypedKeyedEntity, ITypeable
     {
         public DifferentiatedEntity() : base() { }
         public DifferentiatedEntity(in string type,
