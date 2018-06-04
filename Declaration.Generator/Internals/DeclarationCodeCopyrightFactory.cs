@@ -1,5 +1,4 @@
-﻿using static System.DateTimeOffset;
-using static System.Environment;
+﻿using Microsoft.Extensions.Configuration;
 using static System.String;
 
 namespace Declaration.Generator.Internals
@@ -7,10 +6,11 @@ namespace Declaration.Generator.Internals
     internal static class DeclarationCodeCopyrightFactory
     {
         private const string Copyright = nameof(Copyright);
-        private static readonly string _copyrightEnvironmentValue = GetEnvironmentVariable(Concat("CodeGenerator_", Copyright));
-        private static readonly string _copyrightYear = UtcNow.Year.ToString();
+        private const string Default = "Christopher Dorst";
 
-        public static readonly string CopyrightValue = Concat(Copyright, " © ", _copyrightYear,
-            IsNullOrWhiteSpace(_copyrightEnvironmentValue) ? "Christopher Dorst" : _copyrightEnvironmentValue);
+        public static string CopyrightValue(in IConfigurationRoot configuration) => Format(configuration[Copyright]);
+
+        private static string Format(in string copyright)
+            => Concat(Copyright, " © ", IsNullOrWhiteSpace(copyright) ? Default : copyright);
     }
 }
