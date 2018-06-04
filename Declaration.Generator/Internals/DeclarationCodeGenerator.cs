@@ -18,11 +18,11 @@ namespace Declaration.Generator.Internals
         {
             var path = Concat(layer.BlockName, "_", layer.Name);
 
-            // yield return /Layers/{path}/Layer.cs
+            // Declare file: Declaration/Layers/{path}/Layer.cs
             yield return GetLayer(in layer, in path, in configuration);
 
-            // yield return /Layers/{path}/Entities/{name}.cs
             foreach (var entity in layer.Entities)
+                // Declare file: Declaration/Layers/{path}/Entities/{name}.cs
                 yield return GetEntity(in layer, in path, in configuration);
         }
 
