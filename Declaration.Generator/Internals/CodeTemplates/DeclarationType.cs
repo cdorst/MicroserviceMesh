@@ -13,13 +13,7 @@ namespace Declaration.Generator.Internals.CodeTemplates
 
         protected static string GetTypeDeclaration(in string typeName, in string @namespace, in IConfigurationRoot configuration,
             in UsingDirectiveList usingDirectiveList = default)
-            => CSharpStaticClass(
-                CopyrightValue(in configuration),
-                ProjectName,
-                typeName,
-                @namespace,
-                usingDirectiveList
-                ).Content.Value; // TODO add type members
+            => CSharpStaticClass(CopyrightValue(in configuration), ProjectName, typeName, @namespace, usingDirectiveList).Content.Value;
 
         protected static string GetTypeNamespace(in string folder, in string subfolder = default)
             => IsNullOrWhiteSpace(subfolder)
