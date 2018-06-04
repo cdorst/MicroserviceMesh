@@ -5,7 +5,7 @@
         public readonly string Contents;
         public readonly string[] PathParts;
 
-        public DeclarationFile(in string contents, in string[] pathParts)
+        public DeclarationFile(in string contents, params string[] pathParts)
         {
             Contents = contents;
             PathParts = pathParts;
