@@ -11,7 +11,7 @@ namespace Declaration.Generator.Internals
         private const string _extension = ".cs";
         private static readonly string[] _root = { new DirectoryInfo(CurrentDirectory).Parent.FullName, "Declaration", "Code" };
 
-        public static void WriteFile(in string content, params string[] pathParts)
+        public static void WriteFile(in string content, in string[] pathParts)
              => WriteAllText(Path(in pathParts), content);
 
         private static string Path(in string[] parts)

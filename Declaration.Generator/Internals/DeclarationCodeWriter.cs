@@ -17,7 +17,7 @@ namespace Declaration.Generator.Internals
             foreach (var layer in layers)
             {
                 var declaration = GenerateCode(in layer, in configuration);
-                WriteFile(in declaration.Contents, declaration.PathParts);
+                WriteFile(in declaration.Contents, in declaration.PathParts);
             }
         }
     }
