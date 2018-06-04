@@ -14,8 +14,9 @@ namespace Declaration.Generator.Internals.CodeTemplates
 
         protected static string GetTypeDeclaration(in string typeName, in string @namespace, in IConfigurationRoot configuration,
             in string typeSummaryDocumentation = default,
-            in UsingDirectiveList usingDirectiveList = default)
-            => CSharpStaticClass(CopyrightValue(in configuration), ProjectName, typeName, @namespace, usingDirectiveList, Comments.Summary(typeSummaryDocumentation)).Content.Value;
+            in UsingDirectiveList usingDirectiveList = default,
+            in FieldList fieldList = default)
+            => CSharpStaticClass(CopyrightValue(in configuration), ProjectName, typeName, @namespace, usingDirectiveList, Comments.Summary(typeSummaryDocumentation), fieldList: fieldList).Content.Value;
 
         protected static string GetTypeNamespace(in string folder, in string subfolder = default)
             => IsNullOrWhiteSpace(subfolder)
