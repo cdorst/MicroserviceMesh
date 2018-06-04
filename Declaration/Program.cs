@@ -1,4 +1,4 @@
-﻿using Declaration.Generator.Types;
+﻿using Declaration.Generator.Internals.DeclarationTypes;
 using System;
 using System.Collections.Generic;
 
@@ -10,12 +10,12 @@ namespace Declaration
         {
         }
 
-        private static IEnumerable<Layer> GetLayers()
-        {
-            foreach (var block in Code.Blocks)
-                foreach (var layer in block.Layers)
-                    yield return layer;
-        }
+        //private static IEnumerable<Layer> GetLayers()
+        //{
+        //    foreach (var block in Code.Blocks)
+        //        foreach (var layer in block.Layers)
+        //            yield return layer;
+        //}
 
         private static void WriteFile(in Entity entity)
             => throw new NotImplementedException();
