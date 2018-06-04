@@ -6,7 +6,7 @@ namespace Declaration.Generator.Internals.DeclarationTypes.Bases
     public abstract class DifferentiatedEntity : KeyedEntity, ITypeable
     {
         public DifferentiatedEntity() : base() { }
-        public DifferentiatedEntity(in string block, in string layer, in string type, in string @namespace = default) : this()
+        public DifferentiatedEntity(in string block, in string layer, in string type, in string @namespace = default, in byte? keySize = default) : base(keySize)
         {
             BlockName = block;
             LayerName = layer;
