@@ -1,7 +1,6 @@
 ﻿using Declaration.Generator.Internals.DeclarationTypes;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
-using System.Linq;
 using static Declaration.Generator.Internals.DeclarationCodeCopyrightFactory;
 using static DevOps.Primitives.SourceGraph.Helpers.DotNetCore.Common.Files.CSharpCode;
 using static System.String;
