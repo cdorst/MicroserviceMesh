@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Linq;
 using static System.Environment;
+using static System.IO.Directory;
 using static System.IO.File;
 using static System.IO.Path;
 
@@ -12,20 +13,16 @@ namespace Declaration.Generator.Internals
         private static readonly string[] _root = { new DirectoryInfo(CurrentDirectory).Parent.FullName, "Declaration", "Layers" };
 
         public static void WriteFile(in string content, in string[] pathParts)
-             => WriteAllText(Path(in pathParts), content);
-
-        private static string Path(in string[] parts)
-            => Combine(PathArray(in parts));
-
-        private static string[] PathArray(in string[] parts)
-            => _root.Concat(parts.WithExtension()).ToArray();
-
-        private static string[] WithExtension(this string[] parts)
         {
-            var last = parts.Length - 1;
-            if (parts[last].EndsWith(_extension)) return parts;
-            parts[last] = string.Concat(parts[last], _extension);
-            return parts;
+            var directory = DirectoryPath(in pathParts);
+            CreateDirectory(directory);
+            WriteAllText(FilePath(in directory, fileName: pathParts.Last()), content);
         }
+
+        private static string DirectoryPath(in string[] pathParts)
+            => Combine(_root.Concat(pathParts.Take(pathParts.Length - 1)).ToArray());
+
+        private static string FilePath(in string directory, in string fileName)
+            => Combine(directory, string.Concat(fileName, _extension));
     }
 }
