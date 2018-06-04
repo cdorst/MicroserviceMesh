@@ -3,20 +3,21 @@ using Declaration.Generator.Internals.DeclarationTypes.ValueTypes;
 
 namespace Declaration.Generator.Internals.DeclarationTypes.Bases
 {
-    public abstract class DifferentiatedEntity : KeyedEntity, ITypeable
+    public abstract class DifferentiatedEntity : NamedTypeKeyedEntity, ITypeable
     {
         public DifferentiatedEntity() : base() { }
-        public DifferentiatedEntity(in string block, in string layer, in string type, in string @namespace = default, in byte? keySize = default) : base(keySize)
+        public DifferentiatedEntity(in string type,
+            in string block = default,
+            in string layer = default,
+            in string @namespace = default,
+            in byte? keySize = default)
+            : base(in type, in @namespace, in keySize)
         {
             BlockName = block;
             LayerName = layer;
-            Namespace = @namespace;
-            Type = type;
         }
         public string BlockName { get; set; }
         public string LayerName { get; set; }
-        public string Namespace { get; set; }
-        public string Type { get; set; }
 
         public TypeName GetTypeName()
             => string.IsNullOrWhiteSpace(Type) ? throw new TypeNameNotProvidedException()
