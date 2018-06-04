@@ -5,10 +5,6 @@ VisualStudioVersion = 15.0.27703.2018
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csproj", "{3EF92F64-B673-48E3-8F4B-B53F444CB931}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jigs", "Jigs\Jigs.csproj", "{7F79DBBD-292D-415E-BFEE-FF734F8054CD}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Declaration.Generator", "Declaration.Generator\Declaration.Generator.csproj", "{1F2105AB-6AB5-4D3B-B42F-5208EDA0F184}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{59630034-053E-49DE-A433-BA97A8E393F1}"
 	ProjectSection(SolutionItems) = preProject
 		generate-declaration.ps1 = generate-declaration.ps1
@@ -21,15 +17,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Declaration", "Declaration\Declaration.csproj", "{95620FB3-6EC9-4FEF-AC4B-C7DC086C2344}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generator", "Generator\Generator.csproj", "{2843B783-AC87-4E2D-B022-5BD46FFEF336}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "factory", "factory", "{A9F4914F-EDB0-43F0-A774-F2A855A1990D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "declaration", "declaration", "{6427E411-C159-43EF-8C0C-6D7090AACBFF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "foundry", "foundry", "{C68F878E-99AB-4830-B221-5CF489C01E6B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Generator", "factory\Generator\Generator.csproj", "{9D1510AE-8655-486C-978E-DA8698B47135}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Declaration", "factory\declaration\Declaration\Declaration.csproj", "{01973A68-33FF-490B-A62C-EC0DBA948604}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Declaration.Generator", "factory\declaration\Declaration.Generator\Declaration.Generator.csproj", "{95C0BC58-E69B-4D72-847C-40E66C6FC5B6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jigs", "factory\foundry\Jigs\Jigs.csproj", "{A0D86464-D310-4FF8-8284-8822C6922005}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,22 +41,22 @@ Global
 		{3EF92F64-B673-48E3-8F4B-B53F444CB931}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EF92F64-B673-48E3-8F4B-B53F444CB931}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3EF92F64-B673-48E3-8F4B-B53F444CB931}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7F79DBBD-292D-415E-BFEE-FF734F8054CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7F79DBBD-292D-415E-BFEE-FF734F8054CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7F79DBBD-292D-415E-BFEE-FF734F8054CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7F79DBBD-292D-415E-BFEE-FF734F8054CD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1F2105AB-6AB5-4D3B-B42F-5208EDA0F184}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1F2105AB-6AB5-4D3B-B42F-5208EDA0F184}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1F2105AB-6AB5-4D3B-B42F-5208EDA0F184}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1F2105AB-6AB5-4D3B-B42F-5208EDA0F184}.Release|Any CPU.Build.0 = Release|Any CPU
-		{95620FB3-6EC9-4FEF-AC4B-C7DC086C2344}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{95620FB3-6EC9-4FEF-AC4B-C7DC086C2344}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{95620FB3-6EC9-4FEF-AC4B-C7DC086C2344}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{95620FB3-6EC9-4FEF-AC4B-C7DC086C2344}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2843B783-AC87-4E2D-B022-5BD46FFEF336}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2843B783-AC87-4E2D-B022-5BD46FFEF336}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2843B783-AC87-4E2D-B022-5BD46FFEF336}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2843B783-AC87-4E2D-B022-5BD46FFEF336}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D1510AE-8655-486C-978E-DA8698B47135}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D1510AE-8655-486C-978E-DA8698B47135}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D1510AE-8655-486C-978E-DA8698B47135}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D1510AE-8655-486C-978E-DA8698B47135}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01973A68-33FF-490B-A62C-EC0DBA948604}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01973A68-33FF-490B-A62C-EC0DBA948604}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01973A68-33FF-490B-A62C-EC0DBA948604}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01973A68-33FF-490B-A62C-EC0DBA948604}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95C0BC58-E69B-4D72-847C-40E66C6FC5B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95C0BC58-E69B-4D72-847C-40E66C6FC5B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95C0BC58-E69B-4D72-847C-40E66C6FC5B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95C0BC58-E69B-4D72-847C-40E66C6FC5B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0D86464-D310-4FF8-8284-8822C6922005}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0D86464-D310-4FF8-8284-8822C6922005}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0D86464-D310-4FF8-8284-8822C6922005}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0D86464-D310-4FF8-8284-8822C6922005}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +64,10 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{6427E411-C159-43EF-8C0C-6D7090AACBFF} = {A9F4914F-EDB0-43F0-A774-F2A855A1990D}
 		{C68F878E-99AB-4830-B221-5CF489C01E6B} = {A9F4914F-EDB0-43F0-A774-F2A855A1990D}
+		{9D1510AE-8655-486C-978E-DA8698B47135} = {A9F4914F-EDB0-43F0-A774-F2A855A1990D}
+		{01973A68-33FF-490B-A62C-EC0DBA948604} = {6427E411-C159-43EF-8C0C-6D7090AACBFF}
+		{95C0BC58-E69B-4D72-847C-40E66C6FC5B6} = {6427E411-C159-43EF-8C0C-6D7090AACBFF}
+		{A0D86464-D310-4FF8-8284-8822C6922005} = {C68F878E-99AB-4830-B221-5CF489C01E6B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A8683393-4965-45E1-B6A8-48430077AE6B}
