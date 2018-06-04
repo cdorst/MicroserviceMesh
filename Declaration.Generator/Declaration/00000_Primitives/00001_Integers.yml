@@ -10,7 +10,7 @@
     value:
       type: Integer8
       blockName: Primitives
-      familyName: Integers
+      layerName: Integers
 
   - type: Integer16
     keySize: 16
@@ -23,7 +23,7 @@
     value:
       type: Integer16
       blockName: Primitives
-      familyName: Integers
+      layerName: Integers
 
   - type: Integer32
     keySize: 32
@@ -36,7 +36,7 @@
     value:
       type: Integer32
       blockName: Primitives
-      familyName: Integers
+      layerName: Integers
 
   - type: Integer64
     keySize: 64
@@ -49,4 +49,4 @@
     value:
       type: Integer64
       blockName: Primitives
-      familyName: Integers
+      layerName: Integers

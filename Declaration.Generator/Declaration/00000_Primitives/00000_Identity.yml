@@ -10,11 +10,11 @@
     reference:
       type: Uuid
       blockName: Primitives
-      familyName: Identity
+      layerName: Identity
 
   - type: Agent
     keySize: 64
     labels:
       type: UniqueIdentifier
       blockName: Primitives
-      familyName: Identity
+      layerName: Identity
