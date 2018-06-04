@@ -15,10 +15,8 @@ namespace Declaration.Generator.Internals
         private static void WriteFiles(in IEnumerable<Layer> layers, in IConfigurationRoot configuration)
         {
             foreach (var layer in layers)
-            {
-                var declaration = GenerateCode(in layer, in configuration);
-                WriteFile(in declaration.Contents, in declaration.PathParts);
-            }
+                foreach (var file in GenerateCode(layer, configuration))
+                    WriteFile(in file.Contents, in file.PathParts);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Declaration.Generator.Internals.DeclarationTypes;
 using Microsoft.Extensions.Configuration;
+using System.Collections.Generic;
 using static Declaration.Generator.Internals.DeclarationCodeCopyrightFactory;
 using static DevOps.Primitives.SourceGraph.Helpers.DotNetCore.Common.Files.CSharpCode;
 using static System.String;
@@ -10,10 +11,12 @@ namespace Declaration.Generator.Internals
     {
         private const string ProjectName = nameof(Declaration);
 
-        public static DeclarationFile GenerateCode(in Layer layer, in IConfigurationRoot configuration)
+        public static IEnumerable<DeclarationFile> GenerateCode(Layer layer, IConfigurationRoot configuration)
         {
             var pathParts = layer.GetPathParts();
-            return new DeclarationFile(
+
+            // yield return /Layers/{name}/Layer.cs
+            yield return new DeclarationFile(
                 GetTypeDeclaration(in layer, in pathParts, in configuration),
                 pathParts);
         }
