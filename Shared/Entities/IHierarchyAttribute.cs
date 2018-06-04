@@ -2,7 +2,7 @@
 
 namespace Shared.Entities
 {
-    public interface IHierarchyAttribute<TEntity, THierarchyKey, TAttribute, TAttributeKey> 
+    public interface IHierarchyAttribute<TEntity, THierarchyKey, TAttribute, TAttributeKey>
         : IEntity<TEntity, THierarchyKey>
         where THierarchyKey : unmanaged, IEquatable<THierarchyKey>
         where TEntity : IEntity<TEntity, THierarchyKey>
@@ -13,7 +13,7 @@ namespace Shared.Entities
         TAttributeKey AttributeId { get; }
     }
 
-    public interface IHierarchyAttribute<TEntity, THierarchyKey, TAttribute, TAttributeKey, TAttributeDatum, TAttributeDatumKey, TAttributeDatumValue> 
+    public interface IHierarchyAttribute<TEntity, THierarchyKey, TAttribute, TAttributeKey, TAttributeDatum, TAttributeDatumKey, TAttributeDatumValue>
         : IEntity<TEntity, THierarchyKey>
         where THierarchyKey : unmanaged, IEquatable<THierarchyKey>
         where TEntity : IEntity<TEntity, THierarchyKey>
