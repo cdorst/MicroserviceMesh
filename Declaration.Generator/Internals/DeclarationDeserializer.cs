@@ -1,4 +1,5 @@
 ﻿using Declaration.Generator.Internals.DeclarationTypes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using static Declaration.Generator.Internals.DeserializerFactory;
@@ -29,10 +30,11 @@ namespace Declaration.Generator.Internals
             return layer;
         }
 
-        private static string NameOfBlock(in string path) => path.Split(_separators).Last();
-        private static string NameOfLayer(in string file) => file.Split('.').First();
-
         private static Layer GetLayerFromYaml(in string path, in string file)
             => Deserializer.Deserialize<Layer>(ReadAllText(Combine(path, file)));
+
+        private static string LastElement(in string path) => path.Split(_separators).Last();
+        private static string NameOfBlock(in string path) => LastElement(in path);
+        private static string NameOfLayer(in string file) => LastElement(in file).Split('.').First();
     }
 }
