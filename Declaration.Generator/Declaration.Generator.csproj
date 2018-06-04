@@ -7,12 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CDorst.DevOps.Primitives.SourceGraph.Templates" Version="1.0.0" />
+    <PackageReference Include="CDorst.DevOps.Primitives.SourceGraph.Templates" Version="2.0.0" />
     <PackageReference Include="YamlDotNet" Version="4.3.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Internals\CodeTemplates\" />
   </ItemGroup>
 
 </Project>
