@@ -1,4 +1,4 @@
-﻿using static Declaration.Generator.DeclarationCodeWriter;
+﻿using static Declaration.Generator.Internals.DeclarationCodeWriter;
 
 namespace Declaration.Generator
 {
