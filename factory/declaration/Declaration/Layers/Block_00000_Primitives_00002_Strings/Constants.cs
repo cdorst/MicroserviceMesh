@@ -3,7 +3,13 @@
 
 namespace Declaration.Layers.Block_00000_Primitives_00002_Strings
 {
+    /// <summary>Contains BlockName and LayerName values</summary>
     public static class Constants
     {
+        /// <summary>The name of this layer's surrounding block</summary>
+        public const string BlockName = "00000_Primitives";
+
+        /// <summary>The name of this layer</summary>
+        public const string LayerName = "00002_Strings";
     }
 }
