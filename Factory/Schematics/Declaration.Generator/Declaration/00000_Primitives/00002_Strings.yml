@@ -15,6 +15,14 @@
       attributes:
         columnType: varchar(max)
 
+  - type: StringHash
+    keySize: 64
+    value:
+      type: byte[]
+      namespace: System
+      attributes:
+        columnType: varbinary(8)
+
   - type: StringUnicode450
     keySize: 64
     value:
