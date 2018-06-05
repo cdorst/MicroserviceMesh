@@ -2,11 +2,13 @@
 
 Compose a SQL Server relational data model & generate .NET Core atomic microservices with YAML declarations.
 
-Microservices (one for each entity & operation-type) form network mesh over shared relational database.
+Containerized microservices (one for each entity & operation-type) form HTTP-API network mesh over shared relational-data sources.
 
 ## Entities
 
-Each `Entity` forms a code concept, entity, SQL table, Azure Table, pay-per-view & data-ownership smart contract, etc.
+Each `Entity` forms a code entity, SQL table, Azure Table, pay-per-view & data-ownership smart contract, etc.
+
+`Entity` APIs have one microservice per operation
 
 Each `Entity` has one or more of the following:
   - !TODO Write microservice
@@ -14,26 +16,42 @@ Each `Entity` has one or more of the following:
   - !TODO Delete microservice
   - !TODO Permissions microservices
 
-`Entity` APIs have one microservice per operation
+### Grammar
 
-### Entity Kinds
+Microservice solution **Blocks** (with **Slices** of **Rings** of **Entity** dependencies) stack and branch into meta-solution **Trees** with shared-resource trunks.
 
-| Kind                 | Sample Implementation Story     |
-| --------------------:| -------------------------------:|
-| `Datum`              | "Experienced events             |
-| `DatumLabel`         | are labeled,                    |
-| `Hierarchy`          | then meta-classified            |
-| `HierarchyAttribute` | into diagnostic-labeling mesh." |
+#### Entity Kinds
 
-### Stacks of Layered Blocks
+**Kind** types differentiate **Entity** types by story role: 
 
-#### Layers
+| Kind                 | Story                            |
+| --------------------:| ---------------------------------:|
+| `Datum`              | "Observed data                   |
+| `DatumLabel`         | is labeled,                      |
+| `Hierarchy`          | then meta-classified             |
+| `HierarchyAttribute` | and hyperlinked with metadata." |
 
-Each `Layer` of Entities extends the `DbContext` base.
+`DatumLabel` entities label `Datum`-entity data-values.
+
+`Hierarchy` entities represent unique relationship-conceptualizations of labeled data (and other hierarchies).
+
+`HierarchyAttribute` entities attach factual trivia to `Hierarchy`-concept entities. 
+
+#### Rings
+
+Each **Ring** contains one or **Entity** of the same **Kind**.
+
+Within each **Block** **Slice**, **Entity** types are differentiated into overlapping (dependent) **Rings**.
+
+#### Slices
+
+Each **Slice** contains one or more **Entity** **Ring**.
+
+Each **Slice** of Entities extends the `DbContext` base; every **Ring** sharing the same derived **Slice** `DbContext` class.
 
 #### Blocks
 
-Each `Block` contains Layers.
+Each **Block** contains one or more **Slice**.
 
 Microservice mesh solutions are generated for blocks or stacks of blocks of layered data-entity declarations.
 
@@ -73,15 +91,17 @@ Run `.\generate-declaration.ps1` or `./generate-declaration.sh` at the repositor
 
 #### Benchmarks
 
-The `Benchmarks` project contains `Experiments` aiding in the shaping of other work pieces.
+`Experiments` collect evidence used when considering which alternative `Benchmark` code-lines to use when crafting the Solution.
 
 #### Jigs
 
-The `Jigs` project contains templates for code-declaration workpieces moving through the code-generation saw.
+Custom-manufactured `Jigs` facilitate repeated code cuts given multiple same-shaped inputs.
+
+Run `.\jigs.ps1` or `./jigs.sh` at the repository root to remill code cut using `Jigs`.
 
 #### Measurements
 
-The `Measurements` project contains measurements/calculations aiding in the shaping of other work pieces.
+`Measurements` are repeatable observations used to exact specifications on new code & determine correct contribution needed for existing code.
 
 ## Features
 
