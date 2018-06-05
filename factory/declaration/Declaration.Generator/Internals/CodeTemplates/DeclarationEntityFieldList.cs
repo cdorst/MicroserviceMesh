@@ -11,6 +11,7 @@ namespace Declaration.Generator.Internals.CodeTemplates
 {
     internal static class DeclarationEntityFieldList
     {
+        private const string CommaSpace = ", ";
         private const string Comment = "Contains declaration representing this entity type";
         private const string Declaration = nameof(Declaration);
         private const string Entity = nameof(Entity);
@@ -42,11 +43,11 @@ namespace Declaration.Generator.Internals.CodeTemplates
                 var stringBuilder = new StringBuilder();
                 stringBuilder.Append(Quote).Append(value.Type).Append(Quote);
                 if (value.ShadowAlternateKey != null)
-                    stringBuilder.Append(", ").Append(Quote).Append("default").Append(Quote);
+                    stringBuilder.Append(CommaSpace).Append(Quote).Append("default").Append(Quote);
                 if (value.Attributes != null)
-                    stringBuilder.Append(", ").Append(Quote).Append("default").Append(Quote);
+                    stringBuilder.Append(CommaSpace).Append(Quote).Append("default").Append(Quote);
                 if (!IsNullOrWhiteSpace(value.Namespace))
-                    stringBuilder.Append(", ").Append(Quote).Append(value.Namespace).Append(Quote);
+                    stringBuilder.Append(CommaSpace).Append(Quote).Append(value.Namespace).Append(Quote);
                 return stringBuilder.ToString();
             }
         }
