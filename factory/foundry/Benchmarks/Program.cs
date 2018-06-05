@@ -4,6 +4,10 @@ namespace Benchmarks
 {
     public static class Program
     {
-        public static void Main(string[] args) => Run<Experiments.InRefConstructorOverloadLayers>();
+        public static void Main(string[] args)
+        {
+            Run<Experiments.InRefConstructorOverloadLayers>();
+            Run<Experiments.QuotedStringBuilding>();
+        }
     }
 }

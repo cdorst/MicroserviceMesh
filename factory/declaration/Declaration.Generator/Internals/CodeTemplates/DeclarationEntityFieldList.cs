@@ -41,7 +41,7 @@ namespace Declaration.Generator.Internals.CodeTemplates
             {
                 var value = type.Value;
                 var stringBuilder = new StringBuilder();
-                stringBuilder.Append(Concat(Quote, value.Type, Quote));
+                stringBuilder.Append(Quote).Append(value.Type).Append(Quote);
                 return stringBuilder.ToString();
             }
         }

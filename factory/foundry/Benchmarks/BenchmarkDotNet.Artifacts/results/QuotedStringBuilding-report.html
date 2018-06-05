@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>QuotedStringBuilding</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.10.14, OS=Windows 10.0.17134
+Intel Core i5-3570K CPU 3.40GHz (Ivy Bridge), 1 CPU, 4 logical and 4 physical cores
+.NET Core SDK=2.1.300
+  [Host]     : .NET Core 2.1.0 (CoreCLR 4.6.26515.07, CoreFX 4.6.26515.06), 64bit RyuJIT
+  Job-CJOSRU : .NET Core 2.1.0 (CoreCLR 4.6.26515.07, CoreFX 4.6.26515.06), 64bit RyuJIT
+</code></pre>
+<pre><code>LaunchCount=10  
+</code></pre>
+
+<table>
+<thead><tr><th>               Method</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Median</th><th>Rank</th><th>Gen 0</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>UsingOnlyStringBuilder</td><td>42.81 ns</td><td>0.1041 ns</td><td>0.3664 ns</td><td>42.77 ns</td><td>1</td><td>0.0508</td><td>160 B</td>
+</tr><tr><td>UsingStringBuilderAndConcat</td><td>61.92 ns</td><td>0.1091 ns</td><td>0.3853 ns</td><td>61.82 ns</td><td>2</td><td>0.0660</td><td>208 B</td>
+</tr></tbody></table>
+</body>
+</html>
