@@ -7,6 +7,7 @@ namespace Declaration.Generator.Internals.CodeTemplates
     internal static class DeclarationEntityUsingDirectiveList
     {
         public static readonly UsingDirectiveList NamespaceImports = Usings.Create(
+            UsingDirectives.Using("Declaration.Generator.Internals.DeclarationTypes"),
             UsingDirectives.UsingStatic("Declaration.Generator.Internals.DeclarationTypes.Helpers.Entities"));
     }
 }
