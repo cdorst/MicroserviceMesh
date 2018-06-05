@@ -1,7 +1,7 @@
 ﻿using Declaration.Generator.Internals.DeclarationTypes;
 using DevOps.Primitives.CSharp;
-using Field = DevOps.Primitives.CSharp.Helpers.Common.Fields;
-using Fields = DevOps.Primitives.CSharp.Helpers.Common.FieldLists;
+using static DevOps.Primitives.CSharp.Helpers.Common.FieldLists;
+using static DevOps.Primitives.CSharp.Helpers.Common.Fields;
 
 namespace Declaration.Generator.Internals.CodeTemplates
 {
@@ -12,7 +12,7 @@ namespace Declaration.Generator.Internals.CodeTemplates
         private const string Entity = nameof(Entity);
 
         public static FieldList FieldList(in Entity entity)
-            => Fields.Create(Field.PublicStaticReadonly(Declaration, Entity, Comment, initializer: Initializer(in entity)));
+            => Create(PublicStaticReadonly(Declaration, Entity, Comment, initializer: Initializer(in entity)));
 
         private static string Initializer(in Entity entity)
             => "default";
