@@ -1,5 +1,5 @@
 ﻿using DevOps.Primitives.CSharp;
-using DevOps.Primitives.CSharp.Helpers.Common;
+using Imports = DevOps.Primitives.CSharp.Helpers.Common.UsingDirectives;
 using Usings = DevOps.Primitives.CSharp.Helpers.Common.UsingDirectiveLists;
 
 namespace Declaration.Generator.Internals.CodeTemplates
@@ -7,7 +7,7 @@ namespace Declaration.Generator.Internals.CodeTemplates
     internal static class DeclarationEntityUsingDirectiveList
     {
         public static readonly UsingDirectiveList NamespaceImports = Usings.Create(
-            UsingDirectives.Using("Declaration.Generator.Internals.DeclarationTypes"),
-            UsingDirectives.UsingStatic("Declaration.Generator.Internals.DeclarationTypes.Helpers.Entities"));
+            Imports.Using("Declaration.Generator.Internals.DeclarationTypes"),
+            Imports.UsingStatic("Declaration.Generator.Internals.DeclarationTypes.Helpers.Entities"));
     }
 }
