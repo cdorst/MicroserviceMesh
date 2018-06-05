@@ -3,6 +3,7 @@
 
 using Declaration.Generator.Internals.DeclarationTypes;
 using static Declaration.Generator.Internals.DeclarationTypes.Helpers.Entities;
+using static Declaration.Layers.Block_00000_Primitives_00000_Identity.Constants;
 
 namespace Declaration.Layers.Block_00000_Primitives_00000_Identity
 {
