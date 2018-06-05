@@ -11,10 +11,10 @@ namespace Declaration.Generator.Internals.CodeTemplates
         private const string Declaration = nameof(Declaration);
         private const string Entity = nameof(Entity);
 
-        public static FieldList FieldList(in Entity entity)
-            => Create(PublicStaticReadonly(Declaration, Entity, Comment, initializer: Initializer(in entity)));
+        public static FieldList FieldList(in Entity entity, in Layer layer)
+            => Create(PublicStaticReadonly(Declaration, Entity, Comment, initializer: Initializer(in entity, in layer)));
 
-        private static string Initializer(in Entity entity)
+        private static string Initializer(in Entity entity, in Layer layer)
             => "default";
     }
 }
