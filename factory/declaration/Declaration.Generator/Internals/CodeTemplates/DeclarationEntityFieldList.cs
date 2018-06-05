@@ -42,6 +42,12 @@ namespace Declaration.Generator.Internals.CodeTemplates
                 var value = type.Value;
                 var stringBuilder = new StringBuilder();
                 stringBuilder.Append(Quote).Append(value.Type).Append(Quote);
+                if (value.ShadowAlternateKey != null)
+                    stringBuilder.Append(", ").Append(Quote).Append("default").Append(Quote);
+                if (value.Attributes != null)
+                    stringBuilder.Append(", ").Append(Quote).Append("default").Append(Quote);
+                if (!IsNullOrWhiteSpace(value.Namespace))
+                    stringBuilder.Append(", ").Append(Quote).Append(value.Namespace).Append(Quote);
                 return stringBuilder.ToString();
             }
         }
