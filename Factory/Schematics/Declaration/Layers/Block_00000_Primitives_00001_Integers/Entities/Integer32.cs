@@ -11,6 +11,6 @@ namespace Declaration.Layers.Block_00000_Primitives_00001_Integers
     public static class Integer32
     {
         /// <summary>Contains declaration representing this entity type</summary>
-        public static readonly Entity Declaration = Entity(BlockName, LayerName, nameof(Integer32), "Int32", "System");
+        public static readonly Entity Declaration = Entity(BlockName, LayerName, nameof(Integer32), valueType: "Int32", valueNamespace: "System", keySize: 32);
     }
 }

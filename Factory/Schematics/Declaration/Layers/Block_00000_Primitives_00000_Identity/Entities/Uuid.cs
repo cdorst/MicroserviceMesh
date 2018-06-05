@@ -11,6 +11,6 @@ namespace Declaration.Layers.Block_00000_Primitives_00000_Identity
     public static class Uuid
     {
         /// <summary>Contains declaration representing this entity type</summary>
-        public static readonly Entity Declaration = Entity(BlockName, LayerName, nameof(Uuid), "Guid", "System");
+        public static readonly Entity Declaration = Entity(BlockName, LayerName, nameof(Uuid), valueType: "Guid", valueNamespace: "System", keySize: 32);
     }
 }

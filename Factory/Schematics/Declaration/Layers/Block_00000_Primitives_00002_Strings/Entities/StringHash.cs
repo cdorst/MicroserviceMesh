@@ -8,10 +8,10 @@ using static Declaration.Layers.Block_00000_Primitives_00002_Strings.Constants;
 
 namespace Declaration.Layers.Block_00000_Primitives_00002_Strings
 {
-    /// <summary>Contains declaration describing StringUnicodeMax entity types</summary>
-    public static class StringUnicodeMax
+    /// <summary>Contains declaration describing StringHash entity types</summary>
+    public static class StringHash
     {
         /// <summary>Contains declaration representing this entity type</summary>
-        public static readonly Entity Declaration = Entity(BlockName, LayerName, nameof(StringUnicodeMax), valueType: "String", valueNamespace: "System", attributes: Attributes(columnType: "nvarchar(max)"), keySize: 32);
+        public static readonly Entity Declaration = Entity(BlockName, LayerName, nameof(StringHash), valueType: "byte[]", valueNamespace: "System", attributes: Attributes(columnType: "varbinary(8)"), keySize: 32);
     }
 }

@@ -11,6 +11,6 @@ namespace Declaration.Layers.Block_00000_Primitives_00001_Integers
     public static class Int64Reference
     {
         /// <summary>Contains declaration representing this entity type</summary>
-        public static readonly Entity Declaration = Entity(BlockName, LayerName, nameof(Int64Reference), "Integer64");
+        public static readonly Entity Declaration = Entity(BlockName, LayerName, nameof(Int64Reference), valueType: "Integer64", keySize: 32);
     }
 }

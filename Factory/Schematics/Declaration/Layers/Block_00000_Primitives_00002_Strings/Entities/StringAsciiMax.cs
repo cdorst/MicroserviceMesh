@@ -12,6 +12,6 @@ namespace Declaration.Layers.Block_00000_Primitives_00002_Strings
     public static class StringAsciiMax
     {
         /// <summary>Contains declaration representing this entity type</summary>
-        public static readonly Entity Declaration = Entity(BlockName, LayerName, nameof(StringAsciiMax), "String", Attributes(columnType: "varchar(max)"), "System");
+        public static readonly Entity Declaration = Entity(BlockName, LayerName, nameof(StringAsciiMax), valueType: "String", valueNamespace: "System", attributes: Attributes(columnType: "varchar(max)"), keySize: 32);
     }
 }
