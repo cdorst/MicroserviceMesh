@@ -11,12 +11,11 @@ namespace Declaration.Generator.Internals.CodeTemplates
         private const string Comment = "Contains declaration representing this entity type";
         private const string Declaration = nameof(Declaration);
         private const string Entity = nameof(Entity);
-        private const string QuoteCommaSpaceQuote = "\", \"";
 
         public static FieldList FieldList(in Entity entity, in Layer layer, in string typeName)
             => Create(PublicStaticReadonly(Declaration, Entity, Comment, initializer: Initializer(in entity, in layer, in typeName)));
 
         private static string Initializer(in Entity entity, in Layer layer, in string typeName)
-            => Concat("Entity(\"", entity.BlockName, QuoteCommaSpaceQuote, entity.LayerName, QuoteCommaSpaceQuote, typeName, "\", default)");
+            => Concat("Entity(BlockName, LayerName, \"", typeName, "\", default)");
     }
 }

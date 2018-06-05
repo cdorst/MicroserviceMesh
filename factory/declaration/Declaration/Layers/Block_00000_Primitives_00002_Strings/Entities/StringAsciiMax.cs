@@ -11,6 +11,6 @@ namespace Declaration.Layers.Block_00000_Primitives_00002_Strings
     public static class StringAsciiMax
     {
         /// <summary>Contains declaration representing this entity type</summary>
-        public static readonly Entity Declaration = Entity("00000_Primitives", "00002_Strings", "StringAsciiMax", default);
+        public static readonly Entity Declaration = Entity(BlockName, LayerName, "StringAsciiMax", default);
     }
 }

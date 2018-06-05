@@ -11,6 +11,6 @@ namespace Declaration.Layers.Block_00000_Primitives_00001_Integers
     public static class Integer16
     {
         /// <summary>Contains declaration representing this entity type</summary>
-        public static readonly Entity Declaration = Entity("00000_Primitives", "00001_Integers", "Integer16", default);
+        public static readonly Entity Declaration = Entity(BlockName, LayerName, "Integer16", default);
     }
 }
