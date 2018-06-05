@@ -14,10 +14,11 @@ namespace Declaration.Generator.Internals.CodeTemplates
         {
             entity.BlockName = layer.BlockName;
             entity.LayerName = layer.Name;
+            var kind = entity.GetElementKind();
             var name = entity.GetTypeName().Type;
             var comment = Concat("Contains declaration describing ", name, " entity types");
             return new DeclarationFile(
-                GetTypeDeclaration(name, GetTypeNamespace(in path), in configuration, in comment, NamespaceImports(in path), FieldList(in entity, in name)),
+                GetTypeDeclaration(name, GetTypeNamespace(in path), in configuration, in comment, NamespaceImports(in path, in path), FieldList(in entity, in name, in kind)),
                 path, Entities, name);
         }
     }

@@ -16,15 +16,14 @@ namespace Declaration.Generator.Internals.CodeTemplates
         private const string Entity = nameof(Entity);
         private const string Quote = "\"";
 
-        public static FieldList FieldList(in Entity entity, in string typeName)
-            => Create(PublicStaticReadonly(Declaration, Entity, Comment, initializer: Initializer(in entity, in typeName)));
+        public static FieldList FieldList(in Entity entity, in string typeName, in Kind kind)
+            => Create(PublicStaticReadonly(Declaration, Entity, Comment, initializer: Initializer(in entity, in typeName, in kind)));
 
-        private static string Initializer(in Entity entity, in string typeName)
-            => Concat("Entity(BlockName, LayerName, nameof(", typeName, "), ", KindArguments(in entity), ")");
+        private static string Initializer(in Entity entity, in string typeName, in Kind kind)
+            => Concat("Entity(BlockName, LayerName, nameof(", typeName, "), ", KindArguments(in entity, in kind), ")");
 
-        private static string KindArguments(in Entity entity)
+        private static string KindArguments(in Entity entity, in Kind kind)
         {
-            var kind = entity.GetElementKind();
             switch (kind)
             {
                 case Kind.Datum:
