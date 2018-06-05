@@ -69,7 +69,7 @@ Run `.\generate-declaration.ps1` or `./generate-declaration.sh` at the repositor
 
 ### Workbench
 
-`/Factory` meta-work artifacts (e.g. `Benchmarks` & `Jigs`) are located under `/Factory/Workbench`.
+`/Factory` meta-work artifacts (e.g. `Benchmarks`, `Fixtures`, `Jigs`, & `Measurements`) are located under `/Factory/Workbench`.
 
 #### Benchmarks
 
@@ -78,6 +78,10 @@ The `Benchmarks` project contains `Experiments` aiding in the shaping of other w
 #### Jigs
 
 The `Jigs` project contains templates for code-declaration workpieces moving through the code-generation saw.
+
+#### Measurements
+
+The `Measurements` project contains measurements/calculations aiding in the shaping of other work pieces.
 
 ## Features
 
