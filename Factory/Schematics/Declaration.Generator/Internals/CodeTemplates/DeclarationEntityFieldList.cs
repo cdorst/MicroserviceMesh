@@ -30,11 +30,11 @@ namespace Declaration.Generator.Internals.CodeTemplates
                 case Kind.Datum:
                     return FormatDatum(in entity);
                 case Kind.DatumLabel:
-                    return "default";
+                    return "default, default";
                 case Kind.Hierarchy:
-                    return "default";
+                    return "default, default";
                 case Kind.HierarchyAttribute:
-                    return "default";
+                    return "default, default";
             }
             throw new NotImplementedException("Entity kind case not handled");
             string FormatAttributes(in Attributes attributes)
@@ -47,15 +47,15 @@ namespace Declaration.Generator.Internals.CodeTemplates
             {
                 var value = type.Value;
                 var stringBuilder = new StringBuilder();
-                stringBuilder.Append(Quote).Append(value.Type).Append(Quote);
+                stringBuilder.Append("valueType: ").Append(Quote).Append(value.Type).Append(Quote);
                 if (value.AlternateKey != null)
-                    stringBuilder.Append(CommaSpace).Append(Quote).Append("default").Append(Quote);
+                    stringBuilder.Append(CommaSpace).Append("alternateKey: ").Append("default");
+                if (!IsNullOrWhiteSpace(value.Namespace))
+                    stringBuilder.Append(CommaSpace).Append("valueNamespace: ").Append(Quote).Append(value.Namespace).Append(Quote);
                 var attributes = value.Attributes;
                 if (attributes != null)
-                    stringBuilder.Append(CommaSpace).Append(FormatAttributes(in attributes));
-                if (!IsNullOrWhiteSpace(value.Namespace))
-                    stringBuilder.Append(CommaSpace).Append(Quote).Append(value.Namespace).Append(Quote);
-                return stringBuilder.ToString();
+                    stringBuilder.Append(CommaSpace).Append("attributes: ").Append(FormatAttributes(in attributes));
+                return stringBuilder.Append(CommaSpace).Append("keySize: ").Append(((byte)value.GetKeySize()).ToString()).ToString();
             }
         }
     }
