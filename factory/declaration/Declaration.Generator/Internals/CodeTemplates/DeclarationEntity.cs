@@ -17,7 +17,7 @@ namespace Declaration.Generator.Internals.CodeTemplates
             var name = entity.GetTypeName().Type;
             var comment = Concat("Contains declaration describing ", name, " entity types");
             return new DeclarationFile(
-                GetTypeDeclaration(name, GetTypeNamespace(in path), in configuration, in comment, NamespaceImports(in path), FieldList(in entity, in layer, in name)),
+                GetTypeDeclaration(name, GetTypeNamespace(in path), in configuration, in comment, NamespaceImports(in path), FieldList(in entity, in name)),
                 path, Entities, name);
         }
     }
