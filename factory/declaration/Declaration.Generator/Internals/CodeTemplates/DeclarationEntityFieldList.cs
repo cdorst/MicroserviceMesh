@@ -1,5 +1,7 @@
 ﻿using Declaration.Generator.Internals.DeclarationTypes;
+using Declaration.Generator.Internals.DeclarationTypes.ValueTypes;
 using DevOps.Primitives.CSharp;
+using System;
 using static DevOps.Primitives.CSharp.Helpers.Common.FieldLists;
 using static DevOps.Primitives.CSharp.Helpers.Common.Fields;
 using static System.String;
@@ -19,6 +21,20 @@ namespace Declaration.Generator.Internals.CodeTemplates
             => Concat("Entity(BlockName, LayerName, nameof(", typeName, "), ", KindArguments(in entity, in layer), ")");
 
         private static string KindArguments(in Entity entity, in Layer layer)
-            => "default";
+        {
+            var kind = entity.GetElementKind();
+            switch (kind)
+            {
+                case Kind.Datum:
+                    return "default";
+                case Kind.DatumLabel:
+                    return "default";
+                case Kind.Hierarchy:
+                    return "default";
+                case Kind.HierarchyAttribute:
+                    return "default";
+            }
+            throw new NotImplementedException("Entity kind case not handled");
+        }
     }
 }
