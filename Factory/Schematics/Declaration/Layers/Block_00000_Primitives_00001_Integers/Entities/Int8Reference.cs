@@ -11,6 +11,6 @@ namespace Declaration.Layers.Block_00000_Primitives_00001_Integers
     public static class Int8Reference
     {
         /// <summary>Contains declaration representing this entity type</summary>
-        public static readonly Entity Declaration = Entity(BlockName, LayerName, nameof(Int8Reference), valueType: "Integer8", keySize: 32);
+        public static readonly Entity Declaration = Entity(BlockName, LayerName, nameof(Int8Reference), default, default);
     }
 }

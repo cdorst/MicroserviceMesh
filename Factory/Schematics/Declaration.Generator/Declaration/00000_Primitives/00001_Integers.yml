@@ -7,10 +7,10 @@
 
   - type: Int8Reference
     keySize: 8
-    value:
-      type: Integer8
-      blockName: Primitives
-      layerName: Integers
+    data:
+      - type: Integer8
+        blockName: Primitives
+        layerName: Integers
 
   - type: Integer16
     keySize: 16
@@ -20,10 +20,10 @@
 
   - type: Int16Reference
     keySize: 16
-    value:
-      type: Integer16
-      blockName: Primitives
-      layerName: Integers
+    data:
+      - type: Integer16
+        blockName: Primitives
+        layerName: Integers
 
   - type: Integer32
     keySize: 32
@@ -33,10 +33,10 @@
 
   - type: Int32Reference
     keySize: 32
-    value:
-      type: Integer32
-      blockName: Primitives
-      layerName: Integers
+    data:
+      - type: Integer32
+        blockName: Primitives
+        layerName: Integers
 
   - type: Integer64
     keySize: 64
@@ -46,7 +46,7 @@
 
   - type: Int64Reference
     keySize: 64
-    value:
-      type: Integer64
-      blockName: Primitives
-      layerName: Integers
+    data:
+      - type: Integer64
+        blockName: Primitives
+        layerName: Integers

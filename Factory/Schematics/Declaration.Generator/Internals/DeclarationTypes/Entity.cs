@@ -28,13 +28,13 @@ namespace Declaration.Generator.Internals.DeclarationTypes
 
         public List<Hierarchy> Hierarchies { get; set; }
         public List<Label> Labels { get; set; }
-        public Reference Reference { get; set; }
+        public List<Reference> Data { get; set; }
         public Value Value { get; set; }
 
         public Kind GetElementKind() =>
-            Reference == null && Value != null ? Kind.Datum
-            : Value == null && Reference != null ? Kind.DatumLabel
-            : Value != null && Reference != null ? Kind.HierarchyAttribute
+            Data == null && Value != null ? Kind.Datum
+            : Value == null && Data != null ? Kind.DatumLabel
+            : Value != null && Data != null ? Kind.HierarchyAttribute
             : Labels != null || Hierarchies != null ? Kind.Hierarchy
             : throw new KindNotInferrableException();
     }

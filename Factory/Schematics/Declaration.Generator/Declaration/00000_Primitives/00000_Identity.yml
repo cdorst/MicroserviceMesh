@@ -7,10 +7,10 @@
 
   - type: UniqueIdentifier
     keySize: 64
-    reference:
-      type: Uuid
-      blockName: Primitives
-      layerName: Identity
+    data:
+      - type: Uuid
+        blockName: Primitives
+        layerName: Identity
 
   - type: Agent
     keySize: 64
