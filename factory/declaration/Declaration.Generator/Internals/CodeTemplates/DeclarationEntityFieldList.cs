@@ -16,6 +16,9 @@ namespace Declaration.Generator.Internals.CodeTemplates
             => Create(PublicStaticReadonly(Declaration, Entity, Comment, initializer: Initializer(in entity, in layer, in typeName)));
 
         private static string Initializer(in Entity entity, in Layer layer, in string typeName)
-            => Concat("Entity(BlockName, LayerName, nameof(", typeName, "), default)");
+            => Concat("Entity(BlockName, LayerName, nameof(", typeName, "), ", KindArguments(in entity, in layer), ")");
+
+        private static string KindArguments(in Entity entity, in Layer layer)
+            => "default";
     }
 }
