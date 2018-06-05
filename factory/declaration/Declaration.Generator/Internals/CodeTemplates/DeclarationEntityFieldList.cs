@@ -39,7 +39,9 @@ namespace Declaration.Generator.Internals.CodeTemplates
             throw new NotImplementedException("Entity kind case not handled");
             string FormatAttributes(in Attributes attributes)
             {
-                return "Attributes()";
+                if (attributes.ListLiterals == null)
+                    return Concat("Attributes(columnType: \"", attributes.ColumnType, "\")");
+                throw new NotImplementedException("Attribute ListLiterals not yet implemented");
             }
             string FormatDatum(in Entity type)
             {
