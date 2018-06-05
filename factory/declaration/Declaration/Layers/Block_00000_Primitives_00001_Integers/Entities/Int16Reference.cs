@@ -9,6 +9,6 @@ namespace Declaration.Layers.Block_00000_Primitives_00001_Integers
     public static class Int16Reference
     {
         /// <summary>Contains declaration representing this entity type</summary>
-        public static readonly Entity Declaration;
+        public static readonly Entity Declaration = default;
     }
 }

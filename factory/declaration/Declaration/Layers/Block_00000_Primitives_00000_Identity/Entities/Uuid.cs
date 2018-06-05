@@ -9,6 +9,6 @@ namespace Declaration.Layers.Block_00000_Primitives_00000_Identity
     public static class Uuid
     {
         /// <summary>Contains declaration representing this entity type</summary>
-        public static readonly Entity Declaration;
+        public static readonly Entity Declaration = default;
     }
 }
