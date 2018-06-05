@@ -12,6 +12,6 @@ namespace Declaration.Layers.Block_00000_Primitives_00002_Strings
     public static class StringUnicode450
     {
         /// <summary>Contains declaration representing this entity type</summary>
-        public static readonly Entity Declaration = Entity(BlockName, LayerName, nameof(StringUnicode450), "String", "default", "System");
+        public static readonly Entity Declaration = Entity(BlockName, LayerName, nameof(StringUnicode450), "String", Attributes(), "System");
     }
 }

@@ -37,6 +37,10 @@ namespace Declaration.Generator.Internals.CodeTemplates
                     return "default";
             }
             throw new NotImplementedException("Entity kind case not handled");
+            string FormatAttributes(in Attributes attributes)
+            {
+                return "Attributes()";
+            }
             string FormatDatum(in Entity type)
             {
                 var value = type.Value;
@@ -44,8 +48,9 @@ namespace Declaration.Generator.Internals.CodeTemplates
                 stringBuilder.Append(Quote).Append(value.Type).Append(Quote);
                 if (value.ShadowAlternateKey != null)
                     stringBuilder.Append(CommaSpace).Append(Quote).Append("default").Append(Quote);
-                if (value.Attributes != null)
-                    stringBuilder.Append(CommaSpace).Append(Quote).Append("default").Append(Quote);
+                var attributes = value.Attributes;
+                if (attributes != null)
+                    stringBuilder.Append(CommaSpace).Append(FormatAttributes(in attributes));
                 if (!IsNullOrWhiteSpace(value.Namespace))
                     stringBuilder.Append(CommaSpace).Append(Quote).Append(value.Namespace).Append(Quote);
                 return stringBuilder.ToString();
