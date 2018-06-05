@@ -73,7 +73,7 @@ Run `.\generate-declaration.ps1` or `./generate-declaration.sh` at the repositor
 
 #### Benchmarks
 
-The `Benchmarks`
+The `Benchmarks` project contains `Experiments` aiding in the shaping of other work pieces.
 
 #### Jigs
 
