@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\declaration\Declaration\Declaration.csproj" />
+    <ProjectReference Include="..\Schematics\Declaration\Declaration.csproj" />
   </ItemGroup>
 
 </Project>

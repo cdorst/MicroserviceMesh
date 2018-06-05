@@ -51,25 +51,25 @@ Customers purchase smart-contract from integrations broker that integrates their
 
 ## Factory
 
-`/factory` operations streamline production of `Solution` artifacts.
+`/Factory` operations streamline production of `Solution` artifacts.
 
 ### Generator
 
-Use `Generator` within `/factory` to generate `Solution` artifacts from `/factory/declaration` work-specification declarations.
+Use `Generator` within `/Factory` to generate `Solution` artifacts from `/Factory/Schematics` work-specification declarations.
 
-### Declaration
+### Schematicss
 
-`/factory/declaration` `Declaration` project containers `Layers` of work-specification declarations.
+`/Factory/Schematics` `Declaration` project containers `Layers` of work-specification declarations.
 
 #### Declaration.Generator
 
-Use `Declaration.Generator` within `/factory/declaration` to generate `Declaration` artifacts from YAML specifications under the project's `/Declaration` directory.
+Use `Declaration.Generator` within `/Factory/Schematics` to generate `Declaration` artifacts from YAML specifications under the project's `/Declaration` directory.
 
-Run `.\generate-declaration.ps1` or `./generate-declaration.sh` at the repository root to craft the `/factory/declaration/Declaration/Layers`-directory artifacts using the `Declaration.Generator`.
+Run `.\generate-declaration.ps1` or `./generate-declaration.sh` at the repository root to craft the `/Factory/Schematics/Declaration/Layers`-directory artifacts using the `Declaration.Generator`.
 
-### Foundry
+### Workbench
 
-`/factory` meta-work (e.g. `Benchmarks` & `Jigs`) is located within the `/factory/foundry`.
+`/Factory` meta-work artifacts (e.g. `Benchmarks` & `Jigs`) are located under `/Factory/Workbench`.
 
 #### Benchmarks
 
