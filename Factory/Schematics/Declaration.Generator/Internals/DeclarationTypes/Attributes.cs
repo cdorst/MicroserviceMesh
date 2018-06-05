@@ -4,6 +4,13 @@ namespace Declaration.Generator.Internals.DeclarationTypes
 {
     public class Attributes
     {
+        public Attributes() { }
+        public Attributes(in List<string> listLiterals, in string columnType)
+        {
+            ColumnType = columnType;
+            ListLiterals = listLiterals;
+        }
+
         public List<string> ListLiterals { get; set; }
         public string ColumnType { get; set; }
 

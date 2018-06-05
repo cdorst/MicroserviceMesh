@@ -3,6 +3,7 @@
 
 using Declaration.Generator.Internals.DeclarationTypes;
 using static Declaration.Generator.Internals.DeclarationTypes.Helpers.Entities;
+using static Declaration.Generator.Internals.DeclarationTypes.Helpers.ValueAttributes;
 using static Declaration.Layers.Block_00000_Primitives_00002_Strings.Constants;
 
 namespace Declaration.Layers.Block_00000_Primitives_00002_Strings
@@ -11,6 +12,6 @@ namespace Declaration.Layers.Block_00000_Primitives_00002_Strings
     public static class StringUnicode450
     {
         /// <summary>Contains declaration representing this entity type</summary>
-        public static readonly Entity Declaration = Entity(BlockName, LayerName, nameof(StringUnicode450), "String");
+        public static readonly Entity Declaration = Entity(BlockName, LayerName, nameof(StringUnicode450), "String", Attributes(columnType: "nvarchar(450)"), "System");
     }
 }
