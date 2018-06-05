@@ -1,7 +1,4 @@
-cd factory\Declaration.Generator
-dotnet run -c Release
-cd ..
-cd Declaration
+cd factory\declaration\Declaration.Generator
 dotnet run -c Release
 cd ..
 cd ..
