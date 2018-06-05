@@ -48,7 +48,7 @@ namespace Declaration.Generator.Internals.CodeTemplates
                 var value = type.Value;
                 var stringBuilder = new StringBuilder();
                 stringBuilder.Append(Quote).Append(value.Type).Append(Quote);
-                if (value.ShadowAlternateKey != null)
+                if (value.AlternateKey != null)
                     stringBuilder.Append(CommaSpace).Append(Quote).Append("default").Append(Quote);
                 var attributes = value.Attributes;
                 if (attributes != null)
