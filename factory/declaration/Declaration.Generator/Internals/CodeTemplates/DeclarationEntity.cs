@@ -26,7 +26,7 @@ namespace Declaration.Generator.Internals.CodeTemplates
                 path, Entities, name);
         }
 
-        private static readonly FieldList FieldList = Fields.Create(Field.PublicStaticReadonly(Declaration, Entity, Comment));
+        private static readonly FieldList FieldList = Fields.Create(Field.PublicStaticReadonly(Declaration, Entity, Comment, initializer: "default"));
         private static readonly UsingDirectiveList UsingDirectiveList = Usings.Create("Declaration.Generator.Internals.DeclarationTypes");
     }
 }
