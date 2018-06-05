@@ -1,5 +1,6 @@
 ﻿using Declaration.Generator.Internals.DeclarationTypes;
 using DevOps.Primitives.CSharp;
+using DevOps.Primitives.CSharp.Helpers.Common;
 using Microsoft.Extensions.Configuration;
 using static Declaration.Generator.Internals.CodeTemplates.DeclarationEntityFieldList;
 using static System.String;
@@ -11,7 +12,7 @@ namespace Declaration.Generator.Internals.CodeTemplates
     {
         private const string Entities = nameof(Entities);
 
-        private static readonly UsingDirectiveList UsingDirectiveList = Usings.Create("Declaration.Generator.Internals.DeclarationTypes");
+        private static readonly UsingDirectiveList UsingDirectiveList = Usings.Create(UsingDirectives.UsingStatic("Declaration.Generator.Internals.DeclarationTypes.Helpers.Entities"));
 
         public static DeclarationFile GetEntity(in Entity entity, in Layer layer, in string path, in IConfigurationRoot configuration)
         {
