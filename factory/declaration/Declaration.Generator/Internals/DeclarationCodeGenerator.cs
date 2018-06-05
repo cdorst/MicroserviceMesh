@@ -1,6 +1,7 @@
 ﻿using Declaration.Generator.Internals.DeclarationTypes;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
+using static Declaration.Generator.Internals.CodeTemplates.DeclarationConstants;
 using static Declaration.Generator.Internals.CodeTemplates.DeclarationEntity;
 using static Declaration.Generator.Internals.CodeTemplates.DeclarationLayer;
 using static System.String;
@@ -17,6 +18,9 @@ namespace Declaration.Generator.Internals
 
             // Declare file: Declaration/Layers/{path}/Layer.cs
             yield return GetLayer(in layer, in path, in configuration);
+
+            // Declare file: Declaration/Layers/{path}/Constants.cs
+            yield return GetConstants(in layer, in path, in configuration);
 
             foreach (var entity in layer.Entities)
                 // Declare file: Declaration/Layers/{path}/Entities/{name}.cs
