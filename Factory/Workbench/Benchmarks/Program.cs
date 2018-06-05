@@ -6,6 +6,7 @@ namespace Benchmarks
     {
         public static void Main(string[] args)
         {
+            Run<Experiments.AsciiStringEncoding>();
             Run<Experiments.InRefConstructorOverloadLayers>();
             Run<Experiments.QuotedStringBuilding>();
         }
