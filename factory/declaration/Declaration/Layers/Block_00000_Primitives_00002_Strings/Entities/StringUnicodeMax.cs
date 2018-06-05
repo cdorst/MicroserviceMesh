@@ -11,6 +11,6 @@ namespace Declaration.Layers.Block_00000_Primitives_00002_Strings
     public static class StringUnicodeMax
     {
         /// <summary>Contains declaration representing this entity type</summary>
-        public static readonly Entity Declaration = Entity(BlockName, LayerName, "StringUnicodeMax", default);
+        public static readonly Entity Declaration = Entity(BlockName, LayerName, nameof(StringUnicodeMax), default);
     }
 }
