@@ -1,4 +1,5 @@
 ﻿using Declaration.Generator.Internals.DeclarationTypes;
+using Declaration.Generator.Internals.DeclarationTypes.ValueTypes;
 using Microsoft.Extensions.Configuration;
 using static Declaration.Generator.Internals.CodeTemplates.DeclarationEntityFieldList;
 using static Declaration.Generator.Internals.CodeTemplates.DeclarationEntityUsingDirectiveList;
@@ -15,10 +16,11 @@ namespace Declaration.Generator.Internals.CodeTemplates
             entity.BlockName = layer.BlockName;
             entity.LayerName = layer.Name;
             var kind = entity.GetElementKind();
+            var hasAttributes = kind == Kind.Datum && entity.Value?.Attributes != null;
             var name = entity.GetTypeName().Type;
             var comment = Concat("Contains declaration describing ", name, " entity types");
             return new DeclarationFile(
-                GetTypeDeclaration(name, GetTypeNamespace(in path), in configuration, in comment, NamespaceImports(in path, in kind), FieldList(in entity, in name, in kind)),
+                GetTypeDeclaration(name, GetTypeNamespace(in path), in configuration, in comment, NamespaceImports(in path, in hasAttributes), FieldList(in entity, in name, in kind)),
                 path, Entities, name);
         }
     }
