@@ -14,14 +14,15 @@ namespace Declaration.Generator.Internals.CodeTemplates
     {
         private const string Name = "GetEntities";
         private const string Type = "IEnumerable<Entity>";
-        private const string XmlDoc = "Returns this Layer's Entity declarations";
+        private static readonly DocumentationCommentList XmlDoc = Summary("Returns this Layer's Entity declarations");
 
         public static MethodList GetMethodList(in Layer layer)
-            => Create(PublicStatic(Name, Type,
-                Blocks.Create(GetMethodBody(layer).ToArray()),
-                documentationCommentList: Summary(XmlDoc)));
+            => Create(PublicStatic(Name, Type, BodyBlock(in layer), documentationCommentList: XmlDoc));
 
-        private static IEnumerable<string> GetMethodBody(Layer layer)
+        private static DevOps.Primitives.CSharp.Block BodyBlock(in Layer layer)
+            => Blocks.Create(BodyBlockStatements(layer).ToArray());
+
+        private static IEnumerable<string> BodyBlockStatements(Layer layer)
         {
             foreach (var entity in layer.Entities)
             {
