@@ -13,6 +13,6 @@ namespace Declaration.Generator.Internals.CodeTemplates
         public static DeclarationFile GetLayer(in Layer layer, in string path, in IConfigurationRoot configuration)
             => new DeclarationFile(
                 GetTypeDeclaration(Layer, GetTypeNamespace(in path), in configuration, in XmlDocSummary, in UsingDirectives, methodList: GetMethodList(in layer)),
-                path, Layer);
+                "Layers", path, Layer);
     }
 }

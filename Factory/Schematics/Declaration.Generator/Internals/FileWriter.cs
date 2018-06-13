@@ -11,7 +11,7 @@ namespace Declaration.Generator.Internals
     internal static class FileWriter
     {
         private const string _extension = ".cs";
-        private static readonly string[] _root = { new DirectoryInfo(CurrentDirectory).Parent.FullName, "Declaration", "Layers" };
+        private static readonly string[] _root = { new DirectoryInfo(CurrentDirectory).Parent.FullName, "Declaration" };
 
         public static void WriteFile(in string content, in string[] pathParts)
         {
