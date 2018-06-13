@@ -1,14 +1,16 @@
 ﻿using Microsoft.Extensions.Configuration;
+using static System.DateTime;
 using static System.String;
 
-namespace Declaration.Generator.Internals
+namespace Generator.Core
 {
-    internal static class DeclarationCodeCopyrightFactory
+    public static class CopyrightHeaderFactory
     {
         private const string Copyright = nameof(Copyright);
-        private const string Default = "Christopher Dorst";
+        private static readonly string Default = UtcNow.Year.ToString();
 
-        public static string CopyrightValue(in IConfigurationRoot configuration) => Format(configuration[Copyright]);
+        public static string CopyrightValue(in IConfigurationRoot configuration)
+            => Format(configuration[Copyright]);
 
         private static string Format(in string copyright)
             => Concat(Copyright, " © ", IsNullOrWhiteSpace(copyright) ? Default : copyright);

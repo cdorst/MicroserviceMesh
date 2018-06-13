@@ -1,8 +1,8 @@
 ﻿using DevOps.Primitives.CSharp;
 using Microsoft.Extensions.Configuration;
-using static Declaration.Generator.Internals.DeclarationCodeCopyrightFactory;
 using static DevOps.Primitives.CSharp.Helpers.Common.Comments;
 using static DevOps.Primitives.SourceGraph.Helpers.DotNetCore.Common.Files.CSharpCode;
+using static Generator.Core.CopyrightHeaderFactory;
 using static System.String;
 
 namespace Declaration.Generator.Internals.CodeTemplates
