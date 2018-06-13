@@ -9,7 +9,7 @@ namespace Declaration.Generator.Internals.CodeTemplates
 {
     internal abstract class DeclarationType
     {
-        private const string ProjectName = nameof(Declaration);
+        protected const string ProjectName = nameof(Declaration);
         private static readonly string _namespacePrefix = Concat(ProjectName, ".Layers.");
 
         protected static string GetTypeDeclaration(in string typeName, in string @namespace, in IConfigurationRoot configuration,
