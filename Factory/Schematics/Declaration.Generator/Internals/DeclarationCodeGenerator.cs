@@ -1,4 +1,5 @@
 ﻿using Declaration.Generator.Internals.DeclarationTypes;
+using Generator.Core;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using static Declaration.Generator.Internals.CodeTemplates.DeclarationConstants;
@@ -12,7 +13,7 @@ namespace Declaration.Generator.Internals
     {
         private const string Underscore = "_";
 
-        public static IEnumerable<DeclarationFile> GenerateCode(Layer layer, IConfigurationRoot configuration)
+        public static IEnumerable<GeneratedFile> GenerateCode(Layer layer, IConfigurationRoot configuration)
         {
             var path = Concat("Block", Underscore, layer.BlockName, Underscore, layer.Name);
 

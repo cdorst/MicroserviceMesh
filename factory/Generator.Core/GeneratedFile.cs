@@ -1,11 +1,11 @@
-﻿namespace Declaration.Generator.Internals
+﻿namespace Generator.Core
 {
-    public readonly struct DeclarationFile
+    public readonly struct GeneratedFile
     {
         public readonly string Contents;
         public readonly string[] PathParts;
 
-        public DeclarationFile(in string contents, params string[] pathParts)
+        public GeneratedFile(in string contents, params string[] pathParts)
         {
             Contents = contents;
             PathParts = pathParts;
