@@ -1,5 +1,5 @@
-﻿using static Declaration.Generator.Internals.ConfigurationFactory;
-using static Declaration.Generator.Internals.DeclarationCodeWriter;
+﻿using static Declaration.Generator.Internals.DeclarationCodeWriter;
+using static Generator.Core.ConfigurationFactory;
 using static System.Console;
 
 namespace Declaration.Generator
